@@ -1,4 +1,4 @@
-package com.example.schedulerapp.ui.dashboard;
+package com.example.schedulerapp.ui.checklist;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.schedulerapp.databinding.FragmentDashboardBinding;
+import com.example.schedulerapp.databinding.FragmentChecklistBinding;
 
-public class DashboardFragment extends Fragment {
+public class ChecklistFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentChecklistBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        ChecklistViewModel checklistViewModel =
+                new ViewModelProvider(this).get(ChecklistViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentChecklistBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.checklistText;
+        checklistViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

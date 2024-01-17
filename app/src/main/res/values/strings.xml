@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">SchedulerApp</string>
-    <string name="title_home">Home</string>
+    <string name="title_new_event">New Event</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="centerText">This is our scheduling app!!!</string>
+    <string name="home_text">test</string>
+    <string name="settings_fragment_base_text">Settings Fragment</string>
+    <string name="calendar_fragment_base_text">Calendar Fragment</string>
+    <string name="profile_fragment_base_text">Profile Fragment</string>
+    <string name="checklist_fragment_base_text">Checklist Fragment</string>
+    <string name="calendar_nav_title">Calendar</string>
+    <string name="profile_nav_title">Profile</string>
+    <string name="checklist_nav_title">Checklist</string>
 </resources>

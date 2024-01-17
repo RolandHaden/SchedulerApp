@@ -1,16 +1,16 @@
-package com.example.schedulerapp.ui.notifications;
+package com.example.schedulerapp.ui.checklist;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class ChecklistViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public ChecklistViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("This is checklist fragment");
     }
 
     public LiveData<String> getText() {
