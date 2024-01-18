@@ -6,14 +6,14 @@ import androidx.lifecycle.ViewModel;
 
 public class ChecklistViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    //private final MutableLiveData<String> mText;
 
     public ChecklistViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is checklist fragment");
+        //mText = new MutableLiveData<>();
+        //mText.setValue("This is checklist fragment");
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+//    public LiveData<String> getText() {
+//        return mText;
+//    }
 }

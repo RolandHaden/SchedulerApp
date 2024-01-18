@@ -1,5 +1,6 @@
 package com.example.schedulerapp.ui.checklist;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,6 @@ import com.example.schedulerapp.databinding.FragmentChecklistBinding;
 public class ChecklistFragment extends Fragment {
 
     private FragmentChecklistBinding binding;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ChecklistViewModel checklistViewModel =
@@ -24,8 +24,8 @@ public class ChecklistFragment extends Fragment {
         binding = FragmentChecklistBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.checklistText;
-        checklistViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        //final TextView textView = binding.checklistText;
+        //checklistViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
