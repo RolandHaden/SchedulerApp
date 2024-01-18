@@ -1,10 +1,10 @@
 package com.example.schedulerapp;
 //This is for objects that will be displayed through the calendar
 public class classObject {
-    private String courseName;
-    private String startTime;
-    private String endTime;
-    private String professorName;
+    String courseName;
+    String startTime;
+    String endTime;
+    String professorName;
     public classObject(String courseName, String startTime, String endTime, String professorName) {
         this.courseName = courseName;
         this.startTime = startTime;

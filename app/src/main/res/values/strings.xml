@@ -12,4 +12,13 @@
     <string name="calendar_nav_title">Calendar</string>
     <string name="profile_nav_title">Profile</string>
     <string name="checklist_nav_title">Checklist</string>
+    <string name="add_button_description">Add Event</string>
+    <string name="class_1">CS 1331</string>
+    <string name="prof_1">Richard Landry</string>
+    <string name="class_2">CS 2340</string>
+    <string name="prof_2">Faulkner</string>
+    <string name="classStart_1">8 AM</string>
+    <string name="classStart_2">10 AM</string>
+    <string name="classEnd_1">10 AM</string>
+    <string name="classEnd_2">1 PM</string>
 </resources>

@@ -13,7 +13,6 @@ import com.example.schedulerapp.ui.checklist.ChecklistFragment;
 import com.example.schedulerapp.ui.profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
-
     ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
