@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/navigation_calendar"
         android:name="com.example.schedulerapp.ui.profile.ProfileFragment"
-        tools:layout="@layout/fragment_calendar" />
+        tools:layout="@layout/fragment_calendar" >
+        <action
+            android:id="@+id/action_navigation_calendar_to_newEventFragment"
+            app:destination="@id/newEventFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -19,4 +23,9 @@
         android:id="@+id/navigation_checklist"
         android:name="com.example.schedulerapp.ui.checklist.ChecklistFragment"
         tools:layout="@layout/fragment_checklist" />
+    <fragment
+        android:id="@+id/newEventFragment"
+        android:name="com.example.schedulerapp.ui.calendar.NewEventFragment"
+        android:label="fragment_new_event"
+        tools:layout="@layout/fragment_new_event" />
 </navigation>
