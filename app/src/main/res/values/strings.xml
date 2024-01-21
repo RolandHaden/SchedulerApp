@@ -21,5 +21,13 @@
     <string name="classStart_2">10 AM</string>
     <string name="classEnd_1">10 AM</string>
     <string name="classEnd_2">1 PM</string>
-    <string name="hello_blank_fragment">Hello Blank Fragment</string>
+    <string name="hello_blank_fragment">Add an Event</string>
+    <string name="name">Name:</string>
+    <string name="date"><![CDATA[Date & Time:]]></string>
+    <string-array name="events">
+        <item>Class</item>
+        <item>Exam</item>
+        <item>Assignment</item>
+        <item>Other</item>
+    </string-array>
 </resources>

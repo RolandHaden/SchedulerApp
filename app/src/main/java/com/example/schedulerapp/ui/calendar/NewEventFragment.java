@@ -1,14 +1,18 @@
 package com.example.schedulerapp.ui.calendar;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.example.schedulerapp.R;
+import com.example.schedulerapp.databinding.FragmentNewEventBinding;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +29,7 @@ public class NewEventFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
 
     public NewEventFragment() {
         // Required empty public constructor
@@ -57,10 +62,26 @@ public class NewEventFragment extends Fragment {
         }
     }
 
+    private FragmentNewEventBinding binding;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_event, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+
+        binding = FragmentNewEventBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+        Spinner spinner = (Spinner) root.findViewById(R.id.spinnerEvent);
+// Create an ArrayAdapter using the string array and a default spinner layout.
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                getContext(),
+                R.array.events,
+                android.R.layout.simple_spinner_item
+        );
+// Specify the layout to use when the list of choices appears.
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner.
+        spinner.setAdapter(adapter);
+
+        return root;
     }
 }
