@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -75,6 +77,10 @@ public class NewEventFragment extends Fragment {
 
         binding = FragmentNewEventBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        //Creating a calendar implementation for the date input for an event
+        EditText eDate = root.findViewById(R.id.editTextDate);
+        Button addButton = (Button) root.findViewById(R.id.addEventButton);
+        //Spinner object
         Spinner spinner = (Spinner) root.findViewById(R.id.spinnerEvent);
         // Create an ArrayAdapter using the string array and a default spinner layout.
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -82,13 +88,23 @@ public class NewEventFragment extends Fragment {
                 R.array.events,
                 android.R.layout.simple_spinner_item
         );
+        //Spinner Listener that updates the add button when selection is made
+        //TODO implement the spinner listener to possibly change views too!
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                addButton.setText("ADD " + spinner.getSelectedItem().toString());
+            }
+
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                addButton.setText("ADD EVENT");
+            }
+        });
         // Specify the layout to use when the list of choices appears.
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner.
         spinner.setAdapter(adapter);
 
-        //Creating a calendar implementation for the date input for an event
-        EditText eDate = root.findViewById(R.id.editTextDate);
+
         //Listens for when the user clicks on the EditText view. Focusable is disabled
         //so this is how the user will interact w/ date editing.
         eDate.setOnClickListener(new View.OnClickListener() {
