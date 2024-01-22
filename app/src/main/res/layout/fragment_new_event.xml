@@ -10,13 +10,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp"
+        >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="@string/hello_blank_fragment"
-            android:textSize="24sp" />
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:paddingStart="0dp"
+            />
 
         <Spinner
             android:id="@+id/spinnerEvent"
@@ -28,7 +35,10 @@
             android:id="@+id/name_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/name" />
+            android:text="@string/name"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/name_input"
@@ -36,27 +46,35 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/name" />
+            android:hint="@string/name" />
 
         <TextView
             android:id="@+id/date_display"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/date" />
+            android:text="@string/date"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="date" />
+            android:inputType="date"
+            android:hint="Date of event (MM/DD/YYYY)"
+            android:focusable="false"
+            />
 
         <EditText
             android:id="@+id/editTextTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="time" />
+            android:inputType="time"
+            android:hint="Time of event (hh:mm:ss)"
+            />
     </LinearLayout>
 
 </FrameLayout>
