@@ -66,7 +66,8 @@ public class ChecklistFragment extends Fragment {
 
         String[] taskNames = new String[] {
             "Sample Task",
-            "Do Homework"
+            "Do Homework",
+                "Study for 2340"
         };
 
         for(int i = 0; i < taskNames.length; i++) {
