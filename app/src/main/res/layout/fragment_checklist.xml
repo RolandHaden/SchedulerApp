@@ -13,7 +13,7 @@
         android:id="@+id/tasksText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tasks"
+        android:text="@string/tasks"
         android:textSize="32sp"
         android:textStyle="bold"
         android:layout_marginStart="16dp"
@@ -30,16 +30,16 @@
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:contentDescription="Add item"
-        android:id="@+id/addButton"
+        android:contentDescription="@string/add_class"
+        android:id="@+id/addButton_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/material_dynamic_neutral99"
-        android:src="@drawable/baseline_add_24" />
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:src="@drawable/baseline_add_24"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:focusable="true" />
 </RelativeLayout>
