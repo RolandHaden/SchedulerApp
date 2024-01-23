@@ -10,14 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class classListAdapter extends RecyclerView.Adapter<classListAdapter.MyViewHolder> {
     Context context;
     ArrayList<classObject> classObjectArrayList;
-    public MyAdapter(Context context, ArrayList<classObject> classObjectArrayList) {
+    public classListAdapter(Context context, ArrayList<classObject> classObjectArrayList) {
         this.context = context;
         this.classObjectArrayList = classObjectArrayList;
 

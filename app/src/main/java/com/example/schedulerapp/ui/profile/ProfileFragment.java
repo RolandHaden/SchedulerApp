@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.schedulerapp.MyAdapter;
+import com.example.schedulerapp.classListAdapter;
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.classObject;
 import com.example.schedulerapp.databinding.FragmentProfileBinding;
@@ -58,7 +58,7 @@ public class ProfileFragment extends Fragment {
         recyclerview = view.findViewById(R.id.profileRecyclerView);
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview.setHasFixedSize(true);
-        MyAdapter myAdapter = new MyAdapter(getContext(), classArrayList);
+        classListAdapter myAdapter = new classListAdapter(getContext(), classArrayList);
         recyclerview.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
     }
