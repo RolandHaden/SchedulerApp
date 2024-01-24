@@ -25,13 +25,12 @@
     <string name="name">Name</string>
     <string name="date"><![CDATA[Date & Time:]]></string>
     <string name="tasks">Tasks</string>
-    <string name="add_task">Add task</string>
+    <string name="add_task">Add a task</string>
     <string name="classes">Classes</string>
-    <string name="add_class">Add Class</string>
+    <string name="add_class">Add a Class</string>
+    <string name="dates_times"><![CDATA[Dates & Times]]></string>
     <string-array name="events">
-        <item>Class</item>
         <item>Exam</item>
         <item>Assignment</item>
-        <item>Other</item>
     </string-array>
 </resources>

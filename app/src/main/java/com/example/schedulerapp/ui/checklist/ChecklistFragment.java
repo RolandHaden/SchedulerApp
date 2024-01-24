@@ -1,24 +1,21 @@
 package com.example.schedulerapp.ui.checklist;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.schedulerapp.taskListAdapter;
 import com.example.schedulerapp.R;
-import com.example.schedulerapp.classObject;
 import com.example.schedulerapp.databinding.FragmentChecklistBinding;
+import com.example.schedulerapp.taskListAdapter;
 
 import java.util.ArrayList;
 
@@ -29,8 +26,6 @@ public class ChecklistFragment extends Fragment {
     private ArrayList<String> taskArrayList;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ChecklistViewModel checklistViewModel =
-                new ViewModelProvider(this).get(ChecklistViewModel.class);
 
         binding = FragmentChecklistBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -59,6 +54,14 @@ public class ChecklistFragment extends Fragment {
         taskListAdapter myAdapter = new taskListAdapter(getContext(), taskArrayList);
         recyclerView.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
+
+        binding.addButtonTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragment(new NewTaskFragment());
+            }
+        });
+
     }
 
     private void dataInitialize() {
@@ -75,4 +78,14 @@ public class ChecklistFragment extends Fragment {
             taskArrayList.add(taskSelected);
         }
     }
+
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
+    }
+
+
 }

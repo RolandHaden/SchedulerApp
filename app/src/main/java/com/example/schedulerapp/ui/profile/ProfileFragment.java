@@ -9,12 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.schedulerapp.classListAdapter;
 import com.example.schedulerapp.R;
+import com.example.schedulerapp.classListAdapter;
 import com.example.schedulerapp.classObject;
 import com.example.schedulerapp.databinding.FragmentProfileBinding;
 
@@ -61,7 +63,23 @@ public class ProfileFragment extends Fragment {
         classListAdapter myAdapter = new classListAdapter(getContext(), classArrayList);
         recyclerview.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
+
+        binding.addButtonClass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragment(new NewClassFragment());
+            }
+        });
+
     }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
+    }
+
 
     private void dataInitialize() {
         classArrayList = new ArrayList<>();
