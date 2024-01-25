@@ -51,7 +51,7 @@ public class classListAdapter extends RecyclerView.Adapter<classListAdapter.MyVi
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             classTitle = itemView.findViewById(R.id.eventType);
-            profName = itemView.findViewById(R.id.classDesc);
+            profName = itemView.findViewById(R.id.classEvent);
             times = itemView.findViewById(R.id.classTimes);
         }
     }
