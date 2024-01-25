@@ -32,10 +32,25 @@
             android:layout_height="48dp" />
 
         <TextView
-            android:id="@+id/name_text"
+            android:id="@+id/eventClass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/name"
+            android:text="Class:"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerClass"
+            android:layout_width="match_parent"
+            android:spinnerMode="dropdown"
+            android:layout_height="36dp" />
+
+        <TextView
+            android:id="@+id/name_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name/Location"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -46,7 +61,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:hint="@string/name" />
+            android:hint="Name/Location" />
 
         <TextView
             android:id="@+id/date_display"

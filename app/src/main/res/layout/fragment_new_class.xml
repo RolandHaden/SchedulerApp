@@ -28,7 +28,7 @@
 
 
         <TextView
-            android:id="@+id/name_text"
+            android:id="@+id/name_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Class Name:"

@@ -34,4 +34,8 @@
         <item>Exam</item>
         <item>Assignment</item>
     </string-array>
+    <string-array name="classes">
+        <item>@string/class_1</item>
+        <item>@string/class_2</item>
+    </string-array>
 </resources>
