@@ -1,4 +1,4 @@
-package com.example.schedulerapp;
+package com.example.schedulerapp.ui.profile;
 //This is for objects that will be displayed through the calendar
 public class classObject {
     String courseName;

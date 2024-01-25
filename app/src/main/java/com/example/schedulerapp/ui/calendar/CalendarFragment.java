@@ -14,9 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentCalendarBinding;
-import com.example.schedulerapp.eventListAdapter;
-import com.example.schedulerapp.eventObject;
-import com.example.schedulerapp.taskListAdapter;
 
 import java.util.ArrayList;
 

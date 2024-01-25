@@ -16,8 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
-import com.example.schedulerapp.classListAdapter;
-import com.example.schedulerapp.classObject;
 import com.example.schedulerapp.databinding.FragmentProfileBinding;
 
 import java.util.ArrayList;

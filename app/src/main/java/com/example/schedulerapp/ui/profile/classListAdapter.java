@@ -1,4 +1,4 @@
-package com.example.schedulerapp;
+package com.example.schedulerapp.ui.profile;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.schedulerapp.R;
 
 import java.util.ArrayList;
 

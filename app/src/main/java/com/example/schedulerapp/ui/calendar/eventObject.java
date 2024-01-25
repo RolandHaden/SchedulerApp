@@ -1,4 +1,4 @@
-package com.example.schedulerapp;
+package com.example.schedulerapp.ui.calendar;
 import java.time.LocalTime;
 
 //This is for any event created. Subclasses include: Class, Exam, Assignment, & Other
