@@ -28,7 +28,8 @@
     <string name="add_task">Add a task</string>
     <string name="classes">Classes</string>
     <string name="add_class">Add a Class</string>
-    <string name="dates_times"><![CDATA[Dates & Times]]></string>
+    <string name="dates_times">Days of the Week</string>
+    <string name="time">Time:</string>
     <string-array name="events">
         <item>Exam</item>
         <item>Assignment</item>
