@@ -82,9 +82,7 @@ public class ChecklistFragment extends Fragment {
         // Initialize if the list is empty
         if (taskArrayList.isEmpty()) {
             String[] taskNames = new String[]{
-                    "Sample Task",
-                    "Do Homework",
-                    "Study for 2340"
+                "Placeholder Task"
             };
 
             for (int i = 0; i < taskNames.length; i++) {
