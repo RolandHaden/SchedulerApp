@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -20,20 +21,32 @@ import com.example.schedulerapp.taskListAdapter;
 import java.util.ArrayList;
 
 public class ChecklistFragment extends Fragment {
-
+    private static ChecklistViewModel checklistViewModel;
     private FragmentChecklistBinding binding;
     private RecyclerView recyclerView;
-    private ArrayList<String> taskArrayList;
+    private static ArrayList<String> taskArrayList;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        checklistViewModel = new ViewModelProvider(this).get(ChecklistViewModel.class);
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentChecklistBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
         //final TextView textView = binding.checklistText;
         //checklistViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
+
+    public static void addToTaskArrayList(String str) {
+        checklistViewModel.addToTaskArrayList(str);
+    }
+
 
 
     @Override
@@ -65,20 +78,21 @@ public class ChecklistFragment extends Fragment {
     }
 
     private void dataInitialize() {
-        taskArrayList = new ArrayList<>();
+        taskArrayList = checklistViewModel.getTaskArrayList();
+        // Initialize if the list is empty
+        if (taskArrayList.isEmpty()) {
+            String[] taskNames = new String[]{
+                    "Sample Task",
+                    "Do Homework",
+                    "Study for 2340"
+            };
 
-        String[] taskNames = new String[] {
-            "Sample Task",
-            "Do Homework",
-                "Study for 2340"
-        };
-
-        for(int i = 0; i < taskNames.length; i++) {
-            String taskSelected = taskNames[i];
-            taskArrayList.add(taskSelected);
+            for (int i = 0; i < taskNames.length; i++) {
+                String taskSelected = taskNames[i];
+                taskArrayList.add(taskSelected);
+            }
         }
     }
-
 
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getParentFragmentManager();

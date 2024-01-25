@@ -4,16 +4,18 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import androidx.lifecycle.ViewModel;
+
+import java.util.ArrayList;
+
 public class ChecklistViewModel extends ViewModel {
+    private ArrayList<String> taskArrayList = new ArrayList<>();
 
-    //private final MutableLiveData<String> mText;
-
-    public ChecklistViewModel() {
-        //mText = new MutableLiveData<>();
-        //mText.setValue("This is checklist fragment");
+    public ArrayList<String> getTaskArrayList() {
+        return taskArrayList;
     }
 
-//    public LiveData<String> getText() {
-//        return mText;
-//    }
+    public void addToTaskArrayList(String str) {
+        taskArrayList.add(str);
+    }
 }
