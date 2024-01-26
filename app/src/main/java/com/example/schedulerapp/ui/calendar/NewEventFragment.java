@@ -21,17 +21,7 @@ import com.example.schedulerapp.databinding.FragmentNewEventBinding;
 
 import java.util.Calendar;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * create an instance of this fragment.
- */
 public class NewEventFragment extends Fragment {
-
-    public NewEventFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,12 +31,11 @@ public class NewEventFragment extends Fragment {
     private FragmentNewEventBinding binding;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentNewEventBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        //Creating a calendar implementation for the date input for an event
+
         EditText eDate = root.findViewById(R.id.editTextDate);
         Button addButton = (Button) root.findViewById(R.id.addEventButton);
         TextView name_location = (TextView) root.findViewById(R.id.name_location);
@@ -107,11 +96,9 @@ public class NewEventFragment extends Fragment {
                 int mYear=mcurrentDate.get(Calendar.YEAR);
                 int mMonth=mcurrentDate.get(Calendar.MONTH);
                 int mDay=mcurrentDate.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog mDatePicker = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
-                    public void onDateSet(DatePicker datepicker, int selectedYear, int selectedMonth, int selectedDay) {
-                        String selectedDate = (selectedMonth + 1) + "/" + selectedDay + "/" + selectedYear;
-                        eDate.setText(selectedDate);
-                    }
+                DatePickerDialog mDatePicker = new DatePickerDialog(getContext(), (datepicker, selectedYear, selectedMonth, selectedDay) -> {
+                    String selectedDate = (selectedMonth + 1) + "/" + selectedDay + "/" + selectedYear;
+                    eDate.setText(selectedDate);
                 },mYear, mMonth, mDay);
                 mDatePicker.setTitle("Select event date");
                 mDatePicker.show();

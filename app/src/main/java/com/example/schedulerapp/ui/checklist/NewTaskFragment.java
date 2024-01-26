@@ -17,6 +17,8 @@ import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentNewTaskBinding;
 import com.example.schedulerapp.ui.calendar.NewEventFragment;
 
+import java.util.UUID;
+
 public class NewTaskFragment extends Fragment {
 
     @Override
@@ -33,11 +35,18 @@ public class NewTaskFragment extends Fragment {
 
         addButton.setOnClickListener(new View.OnClickListener() {
             final EditText taskTitleField = (EditText) root.findViewById(R.id.taskTitleInput);
-            final EditText taskDescriptionField = (EditText) root.findViewById(R.id.taskTitleInput);
+            final EditText taskDescriptionField = (EditText) root.findViewById(R.id.taskDescriptionInput);
+            final EditText taskDueDate = (EditText) root.findViewById(R.id.taskDueDateInput);
 
             @Override
             public void onClick(View view) {
-                ChecklistFragment.addToTaskArrayList(taskTitleField.getText().toString());
+                ChecklistViewModel.addToTaskArrayList(
+                        taskTitleField.getText().toString(),
+                        taskDescriptionField.getText().toString(),
+                        taskDueDate.getText().toString(),
+                        false,
+                        UUID.randomUUID()
+                );
                 replaceFragment(MainActivity.getCheckFrag());
             }
         });

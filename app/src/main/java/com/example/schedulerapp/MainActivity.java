@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+
     private static CalendarFragment calFrag = new CalendarFragment();
     private static ProfileFragment profFrag = new ProfileFragment();
     private static ChecklistFragment checkFrag = new ChecklistFragment();

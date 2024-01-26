@@ -2,40 +2,54 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
     tools:context=".ui.calendar.NewEventFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:padding="8dp"
-            android:paddingStart="0dp"
+            android:layout_height="wrap_content"
             android:text="@string/add_task"
             android:textColor="@android:color/black"
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/taskTitleInput"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/new_task_title_field_hint"
-            android:inputType="text" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <EditText
-            android:id="@+id/taskDescriptionInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/new_task_description_field_hint"
-            android:inputType="text" />
+            <EditText
+                android:id="@+id/taskTitleInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/new_task_title_field_hint"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/taskDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/new_task_description_field_hint"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/taskDueDateInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="date" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/addTaskButton"

@@ -1,16 +1,20 @@
 package com.example.schedulerapp.ui.checklist;
 
+import java.util.UUID;
+
 public class ChecklistItem {
     private String taskTitle;
     private String taskDescription;
     private String taskDueDate;
     private boolean isChecked;
+    private final UUID id;
 
-    public ChecklistItem(String taskTitle, boolean isChecked) {
+    public ChecklistItem(String taskTitle, String taskDescription, String taskDueDate, Boolean isChecked, UUID id) {
         this.taskTitle = taskTitle;
         this.taskDescription = taskDescription;
         this.taskDueDate = taskDueDate;
         this.isChecked = isChecked;
+        this.id = id;
     }
 
     public String getTaskTitle() {
@@ -39,5 +43,9 @@ public class ChecklistItem {
     }
     public void setChecked(boolean checked) {
         isChecked = checked;
+    }
+
+    public UUID getID() {
+        return id;
     }
 }

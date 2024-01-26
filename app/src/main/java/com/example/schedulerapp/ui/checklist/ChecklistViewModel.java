@@ -7,15 +7,17 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class ChecklistViewModel extends ViewModel {
-    private ArrayList<String> taskArrayList = new ArrayList<>();
+    private static final ArrayList<ChecklistItem> taskArrayList = new ArrayList<>();
 
-    public ArrayList<String> getTaskArrayList() {
+    public static ArrayList<ChecklistItem> getTaskArrayList() {
         return taskArrayList;
     }
 
-    public void addToTaskArrayList(String str) {
-        taskArrayList.add(str);
+    public static void addToTaskArrayList(String taskTitle, String taskDescription, String taskDueDate, Boolean isChecked, UUID id) {
+        ChecklistItem newItem = new ChecklistItem(taskTitle, taskDescription, taskDueDate, isChecked, id);
+        taskArrayList.add(newItem);
     }
 }
