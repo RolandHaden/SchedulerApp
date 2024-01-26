@@ -12,7 +12,9 @@
         android:id="@+id/taskRelativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,9 +28,7 @@
                 android:layout_gravity="center_vertical"
                 android:autoText="false"
                 android:buttonTint="@color/black"
-                android:lineSpacingMultiplier="1.1"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp" />
+                android:lineSpacingMultiplier="1.1" />
 
             <LinearLayout
                 android:id="@+id/taskVerticalLayout"
@@ -38,17 +38,23 @@
 
                 <TextView
                     android:id="@+id/taskTitleText"
-                    style="@style/autoscroll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="OISHDSIODH SIDH SOIDH SOIDH SOIDH OIDH ISHD SIODH OSIHD OISHD OISHD OISHD OISHD SIODH " />
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="Laborum consectetur qui minim et aute anim do esse esse fugiat aute ut"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/taskDescriptionText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sample Task Description" />
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:text="Eu excepteur voluptate nulla quis culpa culpa ullamco voluptate. Anim anim eiusmod veniam ex cupidatat enim cupidatat. Eiusmod dolore nisi in consequat quis proident magna mollit sint veniam occaecat enim cillum occaecat. Occaecat laborum dolore non velit aute officia occaecat sint in cillum ex. Pariatur fugiat officia veniam exercitation tempor occaecat enim minim nulla ea cillum."
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/taskDueDateText"

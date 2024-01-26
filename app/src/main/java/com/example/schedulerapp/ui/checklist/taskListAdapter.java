@@ -134,6 +134,8 @@ public class taskListAdapter extends RecyclerView.Adapter<taskListAdapter.MyView
             taskDueDate = itemView.findViewById(R.id.taskDueDateText);
             checkBox = itemView.findViewById(R.id.taskCheckBox);
 
+            taskTitle.setSelected(true);
+
             /*
              * For completing & removing tasks.
              * This sets a listener that will be called when the checked state of the CheckBox changes.
