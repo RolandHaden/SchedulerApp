@@ -25,7 +25,7 @@
     <string name="new_task_title_field_hint">Title</string>
     <string name="new_task_description_field_hint">Description</string>
     <string name="date"><![CDATA[Date & Time:]]></string>
-    <string name="tasks">Tasks</string>
+    <string name="tasks">My Tasks</string>
     <string name="add_task">Add a Task</string>
     <string name="classes">Classes</string>
     <string name="add_class">Add a Class</string>
