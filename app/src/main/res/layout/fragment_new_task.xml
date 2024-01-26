@@ -3,53 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".ui.calendar.NewEventFragment">
-
-    <!-- TODO: Update blank fragment layout -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp"
-        >
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:padding="8dp"
+            android:paddingStart="0dp"
             android:text="@string/add_task"
             android:textColor="@android:color/black"
             android:textSize="30sp"
-            android:textStyle="bold"
-            android:padding="8dp"
-            android:paddingStart="0dp"
-            />
-
-        <TextView
-            android:id="@+id/task_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Task:"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/task_input"
+            android:id="@+id/taskTitleInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            android:hint="@string/name" />
+            android:hint="@string/new_task_title_field_hint"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/taskDescriptionInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/new_task_description_field_hint"
+            android:inputType="text" />
 
         <Button
             android:id="@+id/addTaskButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add event"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:layout_marginEnd="8dp"
-            />
+            android:text="@string/add_task_confirm_button_text" />
     </LinearLayout>
 
 </FrameLayout>

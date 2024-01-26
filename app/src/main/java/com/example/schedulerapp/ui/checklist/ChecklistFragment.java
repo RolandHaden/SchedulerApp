@@ -18,6 +18,7 @@ import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentChecklistBinding;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ChecklistFragment extends Fragment {
     private static ChecklistViewModel checklistViewModel;
@@ -79,15 +80,13 @@ public class ChecklistFragment extends Fragment {
     private void dataInitialize() {
         taskArrayList = checklistViewModel.getTaskArrayList();
         // Initialize if the list is empty
-        if (taskArrayList.isEmpty()) {
+        if (checklistViewModel.getTaskArrayList().isEmpty()) {
             String[] taskNames = new String[]{
-                "Placeholder Task"
+                "Sample Task Title",
+                "Another Test"
             };
 
-            for (int i = 0; i < taskNames.length; i++) {
-                String taskSelected = taskNames[i];
-                taskArrayList.add(taskSelected);
-            }
+            Collections.addAll(taskArrayList, taskNames);
         }
     }
 

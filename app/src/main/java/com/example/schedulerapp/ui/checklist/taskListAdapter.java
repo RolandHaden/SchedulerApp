@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -51,7 +52,7 @@ public class taskListAdapter extends RecyclerView.Adapter<taskListAdapter.MyView
      */
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         String taskSelected = taskObjectArrayList.get(position);
-        holder.checkboxObject.setText(taskSelected);
+        holder.taskTitle.setText(taskSelected);
     }
 
     /*
@@ -59,10 +60,12 @@ public class taskListAdapter extends RecyclerView.Adapter<taskListAdapter.MyView
      * It holds the reference to the CheckBox which is part of the item layout and is used to display the task title.
      */
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        CheckBox checkboxObject;
+        TextView taskTitle;
+        CheckBox checkBox;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            checkboxObject = itemView.findViewById(R.id.taskCheckBox);
+            taskTitle = itemView.findViewById(R.id.taskTitleText);
+            checkBox = itemView.findViewById(R.id.taskCheckBox);
 
             /*
              * For completing & removing tasks.
@@ -71,11 +74,11 @@ public class taskListAdapter extends RecyclerView.Adapter<taskListAdapter.MyView
              * taskObjectArrayList, removes it, and notifies the adapter that the item has been removed
              * with notifyItemRemoved(index). This will result in the RecyclerView updating to reflect the item's removal.
              */
-            checkboxObject.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                @Override
-               public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-                   int index = taskObjectArrayList.indexOf(checkboxObject.getText());
-                   taskObjectArrayList.remove(checkboxObject.getText());
+               public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                   int index = taskObjectArrayList.indexOf(taskTitle.getText());
+                   taskObjectArrayList.remove(taskTitle.getText());
                    notifyItemRemoved(index); //Always use this
                }
             });

@@ -1,25 +1,68 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/taskCardView"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="50dp"
     android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp">
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="25dp"
+    app:cardElevation="4dp">
+
     <RelativeLayout
+        android:id="@+id/taskRelativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <CheckBox
-            android:id="@+id/taskCheckBox"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="This is a sample task."
-            android:paddingStart="8dp"
-            android:buttonTint="@color/black"
-            />
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/taskCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:autoText="false"
+                android:buttonTint="@color/black"
+                android:lineSpacingMultiplier="1.1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
+
+            <LinearLayout
+                android:id="@+id/taskVerticalLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/taskTitleText"
+                    style="@style/autoscroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="OISHDSIODH SIDH SOIDH SOIDH SOIDH OIDH ISHD SIODH OSIHD OISHD OISHD OISHD OISHD SIODH " />
+
+                <TextView
+                    android:id="@+id/taskDescriptionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sample Task Description" />
+
+                <TextView
+                    android:id="@+id/taskDueDateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="01/24/2023" />
+
+            </LinearLayout>
+        </LinearLayout>
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
 
