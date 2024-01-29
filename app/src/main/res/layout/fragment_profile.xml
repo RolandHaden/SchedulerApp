@@ -45,7 +45,7 @@
         android:contentDescription="@string/add_task"
         android:focusable="true"
         android:src="@drawable/baseline_add_24"
-        app:backgroundTint="@color/white"
+        app:backgroundTint="@color/beige"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

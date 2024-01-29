@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/beige"
     tools:context=".ui.calendar.NewEventFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,25 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp"
-        >
+        android:padding="8dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:padding="8dp"
+            android:paddingStart="0dp"
             android:text="@string/hello_blank_fragment"
             android:textColor="@android:color/black"
             android:textSize="30sp"
-            android:textStyle="bold"
-            android:padding="8dp"
-            android:paddingStart="0dp"
-            />
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spinnerEvent"
             android:layout_width="match_parent"
-            android:spinnerMode="dropdown"
-            android:layout_height="48dp" />
+            android:layout_height="48dp"
+            android:spinnerMode="dropdown" />
 
         <TextView
             android:id="@+id/eventClass"
@@ -43,8 +42,8 @@
         <Spinner
             android:id="@+id/spinnerClass"
             android:layout_width="match_parent"
-            android:spinnerMode="dropdown"
-            android:layout_height="36dp" />
+            android:layout_height="36dp"
+            android:spinnerMode="dropdown" />
 
         <TextView
             android:id="@+id/name_location"
@@ -60,8 +59,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
-            android:hint="Name/Location" />
+            android:hint="Name/Location"
+            android:inputType="text" />
 
         <TextView
             android:id="@+id/date_display"
@@ -77,10 +76,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="date"
-            android:hint="Date of event (MM/DD/YYYY)"
             android:focusable="false"
-            />
+            android:hint="Date of event (MM/DD/YYYY)"
+            android:inputType="date" />
 
         <EditText
             android:id="@+id/editTextTime"
@@ -94,10 +92,10 @@
             android:id="@+id/addEventButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add event"
             android:layout_gravity="right"
             android:layout_marginEnd="8dp"
-            />
+            android:backgroundTint="@color/navy"
+            android:text="Add event" />
     </LinearLayout>
 
 </FrameLayout>
