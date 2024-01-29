@@ -1,5 +1,6 @@
 package com.example.schedulerapp.ui.checklist;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentNewTaskBinding;
 import com.example.schedulerapp.ui.calendar.NewEventFragment;
 
+import java.util.Calendar;
 import java.util.UUID;
 
 public class NewTaskFragment extends Fragment {
@@ -32,7 +34,23 @@ public class NewTaskFragment extends Fragment {
         View root = binding.getRoot();
 
         Button addButton = (Button) root.findViewById(R.id.addTaskButton);
+        EditText eDate = (EditText) root.findViewById(R.id.taskDueDateInput);
+        eDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar mcurrentDate = Calendar.getInstance();
+                int mYear=mcurrentDate.get(Calendar.YEAR);
+                int mMonth=mcurrentDate.get(Calendar.MONTH);
+                int mDay=mcurrentDate.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog mDatePicker = new DatePickerDialog(getContext(), (datepicker, selectedYear, selectedMonth, selectedDay) -> {
+                    String selectedDate = (selectedMonth + 1) + "/" + selectedDay + "/" + selectedYear;
+                    eDate.setText(selectedDate);
+                },mYear, mMonth, mDay);
+                mDatePicker.setTitle("Select event date");
+                mDatePicker.show();
 
+            }
+        });
         addButton.setOnClickListener(new View.OnClickListener() {
             final EditText taskTitleField = (EditText) root.findViewById(R.id.taskTitleInput);
             final EditText taskDescriptionField = (EditText) root.findViewById(R.id.taskDescriptionInput);
@@ -47,7 +65,7 @@ public class NewTaskFragment extends Fragment {
                         false,
                         UUID.randomUUID()
                 );
-                replaceFragment(MainActivity.getCheckFrag());
+                replaceFragment(new ChecklistFragment());
             }
         });
 

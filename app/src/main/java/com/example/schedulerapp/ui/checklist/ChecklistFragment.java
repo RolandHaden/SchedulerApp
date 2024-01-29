@@ -87,7 +87,7 @@ public class ChecklistFragment extends Fragment {
             addToTaskArrayList(
                     "Sample Task Title",
                     "Sample task description",
-                    "01/01/2024",
+                    "1/1/2024",
                     false,
                     UUID.randomUUID()
             );
