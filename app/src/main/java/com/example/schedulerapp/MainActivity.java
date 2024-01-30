@@ -14,6 +14,8 @@ import com.example.schedulerapp.ui.calendar.CalendarFragment;
 import com.example.schedulerapp.ui.calendar.CalendarViewModel;
 import com.example.schedulerapp.ui.calendar.eventObject;
 import com.example.schedulerapp.ui.checklist.ChecklistFragment;
+import com.example.schedulerapp.ui.checklist.ChecklistItem;
+import com.example.schedulerapp.ui.checklist.ChecklistViewModel;
 import com.example.schedulerapp.ui.profile.ProfileFragment;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -45,7 +47,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        loadDataFromSharedPreferences();
+        // Restore data from SharedPreferences for CalendarViewModel
+        loadCalendarDataFromSharedPreferences();
+
+        // Restore data from SharedPreferences for ChecklistViewModel
+        loadChecklistDataFromSharedPreferences();
         replaceFragment(new CalendarFragment());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -74,38 +80,54 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        saveDataToSharedPreferences();
+        // Save data to SharedPreferences for CalendarViewModel
+        saveCalendarDataToSharedPreferences();
+
+        // Save data to SharedPreferences for ChecklistViewModel
+        saveChecklistDataToSharedPreferences();
     }
 
-    private void saveDataToSharedPreferences() {
-        // Get SharedPreferences instance
+    private void loadCalendarDataFromSharedPreferences() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-
-        // Get the editor to write data
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        // Convert your ArrayList to JSON using Gson library (add Gson dependency if not added)
-        String eventsJson = new Gson().toJson(CalendarViewModel.getEventArrayList());
-
-        // Save the JSON string to SharedPreferences
-        editor.putString("eventArrayList", eventsJson);
-        editor.apply();
-    }
-    private void loadDataFromSharedPreferences() {
-        // Get SharedPreferences instance
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-
-        // Retrieve the JSON string from SharedPreferences
         String eventsJson = sharedPreferences.getString("eventArrayList", "");
 
-        // Convert JSON string to ArrayList using Gson
         Type listType = new TypeToken<ArrayList<eventObject>>() {}.getType();
         ArrayList<eventObject> loadedEventArrayList = new Gson().fromJson(eventsJson, listType);
 
-        // Check if data exists and update your ViewModel
         if (loadedEventArrayList != null) {
             CalendarViewModel.getEventArrayList().clear();
             CalendarViewModel.getEventArrayList().addAll(loadedEventArrayList);
         }
+    }
+
+    private void saveCalendarDataToSharedPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        String eventsJson = new Gson().toJson(CalendarViewModel.getEventArrayList());
+        editor.putString("eventArrayList", eventsJson);
+        editor.apply();
+    }
+
+    private void loadChecklistDataFromSharedPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String tasksJson = sharedPreferences.getString("taskArrayList", "");
+
+        Type listType = new TypeToken<ArrayList<ChecklistItem>>() {}.getType();
+        ArrayList<ChecklistItem> loadedTaskArrayList = new Gson().fromJson(tasksJson, listType);
+
+        if (loadedTaskArrayList != null) {
+            ChecklistViewModel.getTaskArrayList().clear();
+            ChecklistViewModel.getTaskArrayList().addAll(loadedTaskArrayList);
+        }
+    }
+
+    private void saveChecklistDataToSharedPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        String tasksJson = new Gson().toJson(ChecklistViewModel.getTaskArrayList());
+        editor.putString("taskArrayList", tasksJson);
+        editor.apply();
     }
 }
