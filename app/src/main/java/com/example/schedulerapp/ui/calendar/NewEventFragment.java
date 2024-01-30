@@ -38,8 +38,9 @@ public class NewEventFragment extends Fragment {
 
         EditText eDate = root.findViewById(R.id.editTextDate);
         Button addButton = (Button) root.findViewById(R.id.addEventButton);
-        TextView name_location = (TextView) root.findViewById(R.id.name_location);
+        TextView name_location = (TextView) root.findViewById(R.id.name_input);
         EditText editNameLoc = (EditText) root.findViewById(R.id.name_input);
+        EditText eTime = root.findViewById(R.id.editTextTime);
 
         //Spinner object
         Spinner spinner = (Spinner) root.findViewById(R.id.spinnerEvent);
@@ -103,6 +104,12 @@ public class NewEventFragment extends Fragment {
                 mDatePicker.setTitle("Select event date");
                 mDatePicker.show();
 
+            }
+        });
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CalendarViewModel.addToEventArrayList(new eventObject(eDate.getText().toString(),spinner.getSelectedItem().toString(),name_location.getText().toString(),classSpinner.getSelectedItem().toString(),eTime.getText().toString()));
             }
         });
         return root;
