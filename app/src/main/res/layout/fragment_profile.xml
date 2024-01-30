@@ -16,10 +16,12 @@
         android:id="@+id/classText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/classes"
         android:textColor="@color/beige"
-        android:textSize="34sp" />
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
     <FrameLayout
         android:layout_width="match_parent"

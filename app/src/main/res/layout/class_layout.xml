@@ -12,14 +12,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:paddingStart="15dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="10dp">
 
         <TextView
             android:id="@+id/eventType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Class Name"
-            android:textColor="@color/white"
+            android:textColor="@color/beige"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -29,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/eventType"
             android:text="Class description"
-            android:textColor="@color/white" />
+            android:textColor="@color/beige" />
 
         <TextView
             android:id="@+id/classTimes"
@@ -37,6 +40,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/classEvent"
             android:text="M W F 1:00 PM - 3:00 PM"
-            android:textColor="@color/white" />
+            android:textColor="@color/beige" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
