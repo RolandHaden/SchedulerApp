@@ -22,6 +22,7 @@ import com.example.schedulerapp.ui.checklist.ChecklistItem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.UUID;
 
 public class CalendarFragment extends Fragment {
 
@@ -35,6 +36,10 @@ public class CalendarFragment extends Fragment {
         binding = FragmentCalendarBinding.inflate(inflater, container, false);
 
         return binding.getRoot();
+    }
+
+    public static void removeSpecificStoredEvent(UUID id) {
+        storedEventArrayList.removeIf(obj -> obj.getId().equals(id));
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
