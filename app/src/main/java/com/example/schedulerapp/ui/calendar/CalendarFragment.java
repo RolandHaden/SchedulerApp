@@ -20,29 +20,29 @@ import com.example.schedulerapp.databinding.FragmentCalendarBinding;
 import com.example.schedulerapp.ui.checklist.ChecklistItem;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 
 public class CalendarFragment extends Fragment {
 
     private FragmentCalendarBinding binding;
     private static ArrayList<eventObject> eventArrayList;
-    private static ArrayList<eventObject> storedEventArrayList = new ArrayList<>();
-    private static CalendarViewModel calendarViewModel;
+    private static final ArrayList<eventObject> storedEventArrayList = new ArrayList<>();
     private eventListAdapter myAdapter;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentCalendarBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        return root;
+        return binding.getRoot();
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        calendarViewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
+        CalendarViewModel calendarViewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
         dataInitialize();
 
+        // Set up RecyclerView for displaying events
         RecyclerView recyclerView = view.findViewById(R.id.eventRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
@@ -50,13 +50,15 @@ public class CalendarFragment extends Fragment {
         recyclerView.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
 
+        // Set up button click listener to navigate to NewEventFragment
         binding.addButtonCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 replaceFragment(new NewEventFragment());
             }
         });
-        //Calendar listener
+
+        // Set up CalendarView listener to filter events based on selected date
         CalendarView calView = (CalendarView) view.findViewById(R.id.simple_calendar_view);
         sortArraytoDate((Calendar.getInstance().get(Calendar.MONTH) + 1) + "/" +
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "/" +
@@ -69,10 +71,11 @@ public class CalendarFragment extends Fragment {
             }
         });
     }
-    public static void addToEventArrayList(eventObject obj) {
-        calendarViewModel.addToEventArrayList(obj);
-    }
-    //Changes out the displayed array with one that matches the selected date
+    /**
+     * Filters events based on the selected date and updates the displayed array.
+     *
+     * @param dateString The selected date in "MM/dd/yyyy" format.
+     */
     private void sortArraytoDate(String dateString) {
         storedEventArrayList.clear();
         System.out.println(dateString);
@@ -82,18 +85,17 @@ public class CalendarFragment extends Fragment {
             }
         }
     }
-
+    /**
+     * Initializes data, populating eventArrayList with sample events if it is empty.
+     */
     private void dataInitialize() {
-            eventArrayList = calendarViewModel.getEventArrayList();
+            eventArrayList = CalendarViewModel.getEventArrayList();
             if (eventArrayList.isEmpty()) {
                 eventObject[] eventArray = new eventObject[]{
                         new eventObject("1/29/2024", "Class", "Skiles 112", "CS 1331", "3:00 PM"),
                         new eventObject("1/12/2024", "Class", "Skiles 112", "CS 1331", "3:00 PM"),
                 };
-                for (int i = 0; i < eventArray.length; i++) {
-                    eventObject selectedEventObject = eventArray[i];
-                    eventArrayList.add(selectedEventObject);
-                }
+                eventArrayList.addAll(Arrays.asList(eventArray));
             }
     }
 
