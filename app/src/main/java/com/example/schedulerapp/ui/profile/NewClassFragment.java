@@ -5,9 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentNewClassBinding;
@@ -38,14 +42,56 @@ public class NewClassFragment extends Fragment {
 
         binding = FragmentNewClassBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        //Creating a calendar implementation for the date input for an event
+
         Button addButton = (Button) root.findViewById(R.id.addClassButton);
-        //Spinner object
-        // Create an ArrayAdapter using the string array and a default spinner layout.
-        //Spinner Listener that updates the add button when selection is made
-        //TODO implement the spinner listener to possibly change views too!
+        EditText eName = root.findViewById(R.id.name_input);
+        EditText eInstructor = root.findViewById(R.id.instructor_input);
+        CheckBox eM = root.findViewById(R.id.monday_box);
+        CheckBox eTu = root.findViewById(R.id.tuesday_box);
+        CheckBox eW = root.findViewById(R.id.wednesday_box);
+        CheckBox eTh = root.findViewById(R.id.thursday_box);
+        CheckBox eF = root.findViewById(R.id.friday_box);
+        EditText eStart = root.findViewById(R.id.editTextTimeStart);
+        EditText eEnd = root.findViewById(R.id.editTextTimeEnd);
+
+        String weekdays = "";
+        if (eM.isChecked()) {
+            weekdays += "M ";
+        }
+        if (eTu.isChecked()) {
+            weekdays += "Tu ";
+        }
+        if (eW.isChecked()) {
+            weekdays += "W ";
+        }
+        if (eTh.isChecked()) {
+            weekdays += "Th ";
+        }
+        if (eF.isChecked()) {
+            weekdays += "F ";
+        }
+
+
         addButton.setText("Add Class");
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProfileViewModel.addToClassArrayList(new classObject(eName.getText().toString(),eEnd.getText().toString(),eStart.getText().toString(),eInstructor.getText().toString()));
+                replaceFragment(new ProfileFragment());
+            }
+        });
+
+
 
         return root;
     }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
+    }
+
 }

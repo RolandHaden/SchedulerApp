@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -78,32 +77,34 @@ public class ProfileFragment extends Fragment {
 
 
     private void dataInitialize() {
-        classArrayList = new ArrayList<>();
+        classArrayList = ProfileViewModel.getClassArrayList();
+        if (classArrayList.isEmpty()) {
+            className = new String[]{
+                    getString(R.string.class_1),
+                    getString(R.string.class_2)
+            };
 
-        className = new String[] {
-                getString(R.string.class_1),
-                getString(R.string.class_2)
-        };
-
-        professorName = new String[] {
-                getString(R.string.prof_1),
-                getString(R.string.prof_2)
-        };
+            professorName = new String[]{
+                    getString(R.string.prof_1),
+                    getString(R.string.prof_2)
+            };
 
 
-        classStartTimes = new String[] {
-                getString(R.string.classStart_1),
-                getString(R.string.classStart_2)
-        };
+            classStartTimes = new String[]{
+                    getString(R.string.classStart_1),
+                    getString(R.string.classStart_2)
+            };
 
-        classEndTimes = new String[] {
-                getString(R.string.classEnd_1),
-                getString(R.string.classEnd_2)
-        };
+            classEndTimes = new String[]{
+                    getString(R.string.classEnd_1),
+                    getString(R.string.classEnd_2)
+            };
+            for(int i = 0; i < className.length; i++) {
+                classObject classSelected = new classObject(className[i], classStartTimes[i], classEndTimes[i], professorName[i]);
+                classArrayList.add(classSelected);
+            }
 
-        for(int i = 0; i < className.length; i++) {
-            classObject classSelected = new classObject(className[i], classStartTimes[i], classEndTimes[i], professorName[i]);
-            classArrayList.add(classSelected);
         }
+
     }
 }
