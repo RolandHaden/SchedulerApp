@@ -7,7 +7,9 @@
     android:layout_height="match_parent"
     android:background="@color/navy"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:paddingStart="20dp"
+    android:paddingTop="20dp"
+    android:paddingEnd="20dp"
     tools:context="com.example.schedulerapp.ui.profile.ProfileFragment">
 
     <TextView
@@ -19,24 +21,28 @@
         android:textColor="@color/beige"
         android:textSize="34sp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/profileRecyclerView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        tools:listitem="@layout/class_layout" />
+        android:layout_height="match_parent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addButton_class"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:clickable="true"
-        android:contentDescription="@string/add_task"
-        android:focusable="true"
-        android:src="@drawable/baseline_add_24"
-        app:backgroundTint="@color/beige" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/profileRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:listitem="@layout/class_layout" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addButton_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:contentDescription="@string/add_task"
+            android:focusable="true"
+            android:src="@drawable/baseline_add_24"
+            app:backgroundTint="@color/beige" />
+    </FrameLayout>
 
 </LinearLayout>

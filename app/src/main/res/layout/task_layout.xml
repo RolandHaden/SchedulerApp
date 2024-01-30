@@ -12,7 +12,7 @@
         android:id="@+id/taskRelativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/gray"
+        android:background="@color/ltgray"
         android:paddingTop="8dp"
         android:paddingEnd="8dp"
         android:paddingBottom="8dp">
