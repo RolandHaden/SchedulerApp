@@ -6,6 +6,10 @@ import androidx.lifecycle.ViewModel;
 
 import androidx.lifecycle.ViewModel;
 
+import com.example.schedulerapp.ui.calendar.CalendarFragment;
+import com.example.schedulerapp.ui.calendar.CalendarViewModel;
+import com.example.schedulerapp.ui.calendar.eventObject;
+
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -19,5 +23,6 @@ public class ChecklistViewModel extends ViewModel {
     public static void addToTaskArrayList(String taskTitle, String taskDescription, String taskDueDate, Boolean isChecked, UUID id) {
         ChecklistItem newItem = new ChecklistItem(taskTitle, taskDescription, taskDueDate, isChecked, id);
         taskArrayList.add(newItem);
+        CalendarViewModel.addToEventArrayList(new eventObject(newItem.getTaskDueDate(), "Task", newItem.getTaskDescription(), newItem.getTaskTitle(), newItem.isChecked() ? "Completed" : "Incomplete"));
     }
 }

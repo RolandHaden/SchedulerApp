@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class CalendarViewModel extends ViewModel {
+import java.util.ArrayList;
 
+public class CalendarViewModel extends ViewModel {
+    private static final ArrayList<eventObject> eventArrayList = new ArrayList<>();
     private final MutableLiveData<String> mText;
 
     public CalendarViewModel() {
@@ -15,5 +17,13 @@ public class CalendarViewModel extends ViewModel {
 
     public LiveData<String> getText() {
         return mText;
+    }
+
+    public static ArrayList<eventObject> getEventArrayList() {
+        return eventArrayList;
+    }
+
+    public static void addToEventArrayList(eventObject obj) {
+        eventArrayList.add(obj);
     }
 }

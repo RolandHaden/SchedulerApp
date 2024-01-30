@@ -11,11 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentCalendarBinding;
+import com.example.schedulerapp.ui.checklist.ChecklistItem;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,6 +27,8 @@ public class CalendarFragment extends Fragment {
     private FragmentCalendarBinding binding;
     private static ArrayList<eventObject> eventArrayList;
     private static ArrayList<eventObject> storedEventArrayList = new ArrayList<>();
+    private static CalendarViewModel calendarViewModel;
+    private eventListAdapter myAdapter;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -36,13 +40,13 @@ public class CalendarFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        calendarViewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
         dataInitialize();
 
         RecyclerView recyclerView = view.findViewById(R.id.eventRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        eventListAdapter myAdapter = new eventListAdapter(getContext(), storedEventArrayList);
+        myAdapter = new eventListAdapter(getContext(), storedEventArrayList);
         recyclerView.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
 
@@ -65,6 +69,9 @@ public class CalendarFragment extends Fragment {
             }
         });
     }
+    public static void addToEventArrayList(eventObject obj) {
+        calendarViewModel.addToEventArrayList(obj);
+    }
     //Changes out the displayed array with one that matches the selected date
     private void sortArraytoDate(String dateString) {
         storedEventArrayList.clear();
@@ -77,15 +84,16 @@ public class CalendarFragment extends Fragment {
     }
 
     private void dataInitialize() {
-            eventArrayList = new ArrayList<>();
-            eventObject[] eventArray = new eventObject[]{
-                    new eventObject("1/29/2024","Class","Skiles 112", "CS 1331", "3:00 PM"),
-                    new eventObject("1/12/2024","Class","Skiles 112", "CS 1331", "3:00 PM"),
-            };
-
-            for (int i = 0; i < eventArray.length; i++) {
-                eventObject selectedEventObject = eventArray[i];
-                eventArrayList.add(selectedEventObject);
+            eventArrayList = calendarViewModel.getEventArrayList();
+            if (eventArrayList.isEmpty()) {
+                eventObject[] eventArray = new eventObject[]{
+                        new eventObject("1/29/2024", "Class", "Skiles 112", "CS 1331", "3:00 PM"),
+                        new eventObject("1/12/2024", "Class", "Skiles 112", "CS 1331", "3:00 PM"),
+                };
+                for (int i = 0; i < eventArray.length; i++) {
+                    eventObject selectedEventObject = eventArray[i];
+                    eventArrayList.add(selectedEventObject);
+                }
             }
     }
 
