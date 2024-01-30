@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.RecyclerRowMoveCallback;
+import com.example.schedulerapp.ui.calendar.CalendarViewModel;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -153,6 +154,7 @@ public class taskListAdapter extends RecyclerView.Adapter<taskListAdapter.MyView
                        item.setChecked(isChecked);
                        if (isChecked) {
                            taskObjectArrayList.remove(getAdapterPosition());
+                           CalendarViewModel.removeSpecificEvent(item.getID());
                            notifyItemRemoved(getAdapterPosition());
                        }
                    }
