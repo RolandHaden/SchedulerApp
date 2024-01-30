@@ -47,11 +47,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         // Restore data from SharedPreferences for CalendarViewModel
         loadCalendarDataFromSharedPreferences();
 
         // Restore data from SharedPreferences for ChecklistViewModel
         loadChecklistDataFromSharedPreferences();
+
         replaceFragment(new CalendarFragment());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {

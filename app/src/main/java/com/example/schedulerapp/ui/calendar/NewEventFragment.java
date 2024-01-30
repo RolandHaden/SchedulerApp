@@ -15,9 +15,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentNewEventBinding;
+import com.example.schedulerapp.ui.checklist.ChecklistFragment;
 
 import java.util.Calendar;
 
@@ -110,8 +113,17 @@ public class NewEventFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 CalendarViewModel.addToEventArrayList(new eventObject(eDate.getText().toString(),spinner.getSelectedItem().toString(),name_location.getText().toString(),classSpinner.getSelectedItem().toString(),eTime.getText().toString()));
+                replaceFragment(new CalendarFragment());
             }
         });
+
         return root;
     }
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
+    }
+
 }
