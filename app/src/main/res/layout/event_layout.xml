@@ -28,8 +28,9 @@
             android:id="@+id/classEvent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/eventType"
+            android:layout_below="@id/eventInfo"
             android:text="Class"
+            android:maxWidth="150dp"
             android:textColor="#000000"
             android:textSize="24sp" />
 
@@ -37,10 +38,11 @@
             android:id="@+id/eventInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/eventType"
             android:paddingStart="10sp"
             android:paddingTop="6sp"
             android:text="Name/Location"
+            android:layout_toLeftOf="@id/deleteButton"
+            android:layout_toRightOf="@id/eventType"
             android:textAlignment="viewStart"
             android:textColor="#000000"
             android:textSize="18sp" />
@@ -49,7 +51,8 @@
             android:id="@+id/eventTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/eventType"
+            android:layout_below="@id/eventInfo"
+            android:layout_toLeftOf="@id/deleteButton"
             android:layout_toRightOf="@id/classEvent"
             android:paddingStart="10sp"
             android:paddingTop="6sp"

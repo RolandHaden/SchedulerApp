@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             CalendarViewModel.getEventArrayList().clear();
             CalendarViewModel.getEventArrayList().addAll(loadedEventArrayList);
         }
+
     }
 
     private void saveCalendarDataToSharedPreferences() {
