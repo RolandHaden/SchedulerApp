@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentCalendarBinding;
+import com.example.schedulerapp.ui.checklist.ChecklistFragment;
 import com.example.schedulerapp.ui.checklist.ChecklistItem;
+import com.example.schedulerapp.ui.checklist.ChecklistViewModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,6 +43,7 @@ public class CalendarFragment extends Fragment {
     public static void removeSpecificStoredEvent(UUID id) {
         eventArrayList.removeIf(obj -> obj.getId().equals(id));
         storedEventArrayList.removeIf(obj -> obj.getId().equals(id));
+        ChecklistViewModel.removeSpecificTask(id);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {

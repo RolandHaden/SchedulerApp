@@ -22,6 +22,7 @@ public class CalendarViewModel extends ViewModel {
     }
     public static void removeSpecificEvent(UUID id) {
         eventArrayList.removeIf(obj -> obj.getId().equals(id));
+
     }
 
     public LiveData<String> getText() {

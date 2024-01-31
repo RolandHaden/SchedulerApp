@@ -9,7 +9,7 @@ public class eventObject{
     private String location;
     private String className;
     private String selectedTime;
-    private final UUID id;
+    private UUID id;
 
     public eventObject(String selectedDate, String type, String location, String className, String selectedTime) {
         this.selectedDate = selectedDate;
@@ -24,9 +24,9 @@ public class eventObject{
         return id;
     }
 
-//    public void setId(UUID id) {
-//        this.id = id;
-//    }
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
     public String getSelectedDate() {
         return selectedDate;

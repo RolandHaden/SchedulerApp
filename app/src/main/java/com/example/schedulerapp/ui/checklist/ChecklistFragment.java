@@ -27,7 +27,7 @@ public class ChecklistFragment extends Fragment {
     private static ChecklistViewModel checklistViewModel;
     private FragmentChecklistBinding binding;
     private RecyclerView recyclerView;
-    private ArrayList<ChecklistItem> taskArrayList = ChecklistViewModel.getTaskArrayList();
+    private static ArrayList<ChecklistItem> taskArrayList = ChecklistViewModel.getTaskArrayList();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +47,8 @@ public class ChecklistFragment extends Fragment {
     public static void addToTaskArrayList(String taskTitle, String taskDescription, String taskDueDate, Boolean isChecked, UUID id) {
         checklistViewModel.addToTaskArrayList(taskTitle, taskDescription, taskDueDate, false, id);
     }
+
+
 
     @Override
     public void onDestroyView() {
