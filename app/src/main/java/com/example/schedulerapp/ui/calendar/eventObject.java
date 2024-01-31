@@ -3,13 +3,13 @@ import java.util.UUID;
 
 //This is for any event created. Subclasses include: Class, Exam, Assignment, & Other
 //TODO Subclass implementation if needed. Also need to look at what object is best at storing time
-public class eventObject {
+public class eventObject{
     private String selectedDate;
     private String type;
     private String location;
     private String className;
     private String selectedTime;
-    private UUID id;
+    private final UUID id;
 
     public eventObject(String selectedDate, String type, String location, String className, String selectedTime) {
         this.selectedDate = selectedDate;
@@ -24,9 +24,9 @@ public class eventObject {
         return id;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
+//    public void setId(UUID id) {
+//        this.id = id;
+//    }
 
     public String getSelectedDate() {
         return selectedDate;

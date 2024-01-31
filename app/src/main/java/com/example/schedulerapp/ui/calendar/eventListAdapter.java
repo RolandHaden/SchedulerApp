@@ -46,7 +46,15 @@ public class eventListAdapter extends RecyclerView.Adapter<eventListAdapter.MyVi
         holder.type.setText(eventSelected.getType());
         holder.eventInfo.setText(eventSelected.getLocation());
         holder.className.setText(eventSelected.getClassName());
-
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    //removing all instances
+                    CalendarFragment.removeSpecificStoredEvent(eventSelected.getId());
+                    //CalendarViewModel.removeSpecificEvent(eventSelected.getId());
+                    notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
@@ -67,18 +75,26 @@ public class eventListAdapter extends RecyclerView.Adapter<eventListAdapter.MyVi
             eventInfo = itemView.findViewById(R.id.eventInfo);
             className = itemView.findViewById(R.id.classEvent);
             deleteButton = itemView.findViewById(R.id.deleteButton);
-            deleteButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (getAdapterPosition() != RecyclerView.NO_POSITION) {
-                        eventObject item = CalendarViewModel.getEventArrayList().get(getAdapterPosition());
-                        CalendarViewModel.removeSpecificEvent(item.getId());
-                        CalendarFragment.removeSpecificStoredEvent(item.getId());
-                        notifyItemRemoved(getAdapterPosition());
-                    }
-
-                }
-            });
+//            deleteButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (getAdapterPosition() != RecyclerView.NO_POSITION) {
+//                        eventObject item = CalendarViewModel.getEventArrayList().get(getAdapterPosition());
+//                        System.out.println("View Model Array: " + CalendarViewModel.getEventArrayList());
+//                        System.out.println("View Model Array Size: " + CalendarViewModel.getEventArrayList().size());
+//                        System.out.println("UUID Looking for: " + item.getId());
+//                        CalendarViewModel.removeSpecificEvent(item.getId());
+//
+//                        for(eventObject eO : CalendarViewModel.getEventArrayList()) {
+//                            System.out.println(eO.getId());
+//                        }
+//                        //CalendarFragment.removeSpecificStoredEvent(item.getId());
+//                        //eventObjectArrayList.removeIf(obj -> obj.getId().equals(item.getId()));
+//                        notifyItemRemoved(getAdapterPosition());
+//                    }
+//
+//                }
+//            });
 
         }
 

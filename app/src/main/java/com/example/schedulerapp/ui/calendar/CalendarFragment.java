@@ -29,7 +29,7 @@ public class CalendarFragment extends Fragment {
     private FragmentCalendarBinding binding;
     private static ArrayList<eventObject> eventArrayList;
     private static final ArrayList<eventObject> storedEventArrayList = new ArrayList<>();
-    private eventListAdapter myAdapter;
+    private static eventListAdapter myAdapter;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -39,6 +39,7 @@ public class CalendarFragment extends Fragment {
     }
 
     public static void removeSpecificStoredEvent(UUID id) {
+        eventArrayList.removeIf(obj -> obj.getId().equals(id));
         storedEventArrayList.removeIf(obj -> obj.getId().equals(id));
     }
 
