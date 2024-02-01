@@ -59,7 +59,7 @@
                 android:padding="20dp"
                 android:paddingLeft="10dp"
                 android:src="@drawable/baseline_close_24"
-                app:backgroundTint="@color/burnt"
+                app:backgroundTint="@color/beige"
                 app:fabCustomSize="35dp"
                 app:shapeAppearanceOverlay="@style/fab_3_rounded" />
         </LinearLayout>

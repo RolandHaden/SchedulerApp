@@ -3,159 +3,148 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/navy"
+    android:background="@color/gray"
     tools:context=".ui.calendar.NewEventFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:text="@string/add_class"
             android:textColor="@color/beige"
             android:textSize="30sp"
             android:textStyle="bold" />
 
-
-        <TextView
-            android:id="@+id/name_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:textColor="@color/beige"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/name_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/beige"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="@color/beige"
-            android:textColorHint="@color/beige" />
-
-        <TextView
-            android:id="@+id/instructor_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Instuctor"
-            android:textColor="@color/beige"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/instructor_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/beige"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="@color/beige"
-            android:textColorHint="@color/beige" />
-
-        <TextView
-            android:id="@+id/date_display"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dates_times"
-            android:textColor="@color/beige"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            <CheckBox
-                android:id="@+id/monday_box"
+            <EditText
+                android:id="@+id/name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="text"
+                android:textColor="@color/beige"
+                android:textColorHint="@color/dim_beige" />
+
+            <EditText
+                android:id="@+id/instructor_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:ems="10"
+                android:hint="Instructor"
+                android:inputType="text"
+                android:textColor="@color/beige"
+                android:textColorHint="@color/dim_beige" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/monday_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="M"
+                    android:textColor="@color/beige" />
+
+                <CheckBox
+                    android:id="@+id/tuesday_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tu"
+                    android:textColor="@color/beige" />
+
+                <CheckBox
+                    android:id="@+id/wednesday_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="W"
+                    android:textColor="@color/beige" />
+
+                <CheckBox
+                    android:id="@+id/thursday_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Th"
+                    android:textColor="@color/beige" />
+
+                <CheckBox
+                    android:id="@+id/friday_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="F"
+                    android:textColor="@color/beige" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/editTextTimeStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:ems="10"
+                android:hint="Start Time (hh:mm)"
+                android:inputType="time"
+                android:textColor="@color/beige"
+                android:textColorHint="@color/dim_beige" />
+
+            <EditText
+                android:id="@+id/editTextTimeEnd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:ems="10"
+                android:hint="End Time (hh:mm)"
+                android:inputType="time"
+                android:textColor="@color/beige"
+                android:textColorHint="@color/dim_beige" />
+
+            <Button
+                android:id="@+id/addClassButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="M"
-                android:textColor="@color/beige" />
-
-            <CheckBox
-                android:id="@+id/tuesday_box"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tu"
-                android:textColor="@color/beige" />
-
-            <CheckBox
-                android:id="@+id/wednesday_box"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="W"
-                android:textColor="@color/beige" />
-
-            <CheckBox
-                android:id="@+id/thursday_box"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Th"
-                android:textColor="@color/beige" />
-
-            <CheckBox
-                android:id="@+id/friday_box"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="F"
+                android:layout_gravity="right"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/burnt"
+                android:text="Confirm"
                 android:textColor="@color/beige" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/time_choice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/time"
-            android:textColor="@color/beige"
-            android:textSize="20sp"
-            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editTextTimeStart"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/beige"
-            android:ems="10"
-            android:hint="Start Time (hh:mm)"
-            android:inputType="time"
-            android:textColor="@color/beige"
-            android:textColorHint="@color/beige" />
+            android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editTextTimeEnd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/beige"
-            android:ems="10"
-            android:hint="End Time (hh:mm)"
-            android:inputType="time"
-            android:textColor="@color/beige"
-            android:textColorHint="@color/beige" />
-
-        <Button
-            android:id="@+id/addClassButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/beige"
-            android:text="Add Class"
-            android:textColor="@color/navy" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@drawable/add_class_icon" />
+        </FrameLayout>
 
     </LinearLayout>
 

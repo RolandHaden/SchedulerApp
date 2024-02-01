@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -42,7 +43,6 @@ public class NewEventFragment extends Fragment {
         EditText eDate = root.findViewById(R.id.editTextDate);
         Button addButton = (Button) root.findViewById(R.id.addEventButton);
         TextView name_location = (TextView) root.findViewById(R.id.name_input);
-        EditText editNameLoc = (EditText) root.findViewById(R.id.name_input);
         EditText eTime = root.findViewById(R.id.editTextTime);
 
         //Spinner object
@@ -68,25 +68,38 @@ public class NewEventFragment extends Fragment {
         //TODO implement the spinner listener to possibly change views too!
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ((TextView) view).setTextColor(ContextCompat.getColor(spinner.getContext(), R.color.beige));
+                ((TextView) view).setTextSize(18);
+                ((TextView) view).setPadding(8, 0, 0, 0);
+
                 addButton.setText("ADD " + spinner.getSelectedItem().toString());
-                name_location.setText((spinner.getSelectedItem().equals("Exam")) ? "Location" : "Name");
-                editNameLoc.setText((spinner.getSelectedItem().equals("Exam")) ? "Location" : "Name");
+                name_location.setHint((spinner.getSelectedItem().equals("Exam")) ? "Exam Location" : "Assignment Title");
             }
 
             public void onNothingSelected(AdapterView<?> adapterView) {
+                addButton.setBackgroundColor(ContextCompat.getColor(addButton.getContext(), R.color.ltgray));
                 addButton.setText("ADD EVENT");
-                name_location.setText("Location");
-                editNameLoc.setText("Location");
+                name_location.setHint("Description");
             }
+        });
+
+        classSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ((TextView) view).setTextColor(ContextCompat.getColor(spinner.getContext(), R.color.beige));
+                ((TextView) view).setTextSize(18);
+                ((TextView) view).setPadding(8, 0, 0, 0);
+            }
+
+            public void onNothingSelected(AdapterView<?> adapterView) { }
         });
 
 
         // Specify the layout to use when the list of choices appears.
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
         // Apply the adapter to the spinner.
         spinner.setAdapter(adapter);
 
-        classAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        classAdapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
         classSpinner.setAdapter(classAdapter);
 
 
@@ -100,11 +113,12 @@ public class NewEventFragment extends Fragment {
                 int mYear=mcurrentDate.get(Calendar.YEAR);
                 int mMonth=mcurrentDate.get(Calendar.MONTH);
                 int mDay=mcurrentDate.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog mDatePicker = new DatePickerDialog(getContext(), (datepicker, selectedYear, selectedMonth, selectedDay) -> {
+
+                DatePickerDialog mDatePicker = new DatePickerDialog(getContext(), R.style.CustomDatePickerDialog, (datepicker, selectedYear, selectedMonth, selectedDay) -> {
                     String selectedDate = (selectedMonth + 1) + "/" + selectedDay + "/" + selectedYear;
                     eDate.setText(selectedDate);
                 },mYear, mMonth, mDay);
-                mDatePicker.setTitle("Select event date");
+
                 mDatePicker.show();
 
             }

@@ -3,99 +3,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/beige"
+    android:background="@color/gray"
+    android:padding="20dp"
     tools:context=".ui.calendar.NewEventFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:padding="8dp"
-            android:paddingStart="0dp"
+            android:layout_height="wrap_content"
             android:text="@string/hello_blank_fragment"
-            android:textColor="@android:color/black"
+            android:textColor="@color/beige"
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <Spinner
-            android:id="@+id/spinnerEvent"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:spinnerMode="dropdown" />
-
-        <TextView
-            android:id="@+id/eventClass"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Class:"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <Spinner
-            android:id="@+id/spinnerClass"
+            <Spinner
+                android:id="@+id/spinnerEvent"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:dropDownWidth="wrap_content"
+                android:dropDownSelector="@color/beige"
+                android:popupBackground="@drawable/spinner_item_background_rounded"
+                android:scrollbarThumbHorizontal="@color/gray"
+                android:scrollbarThumbVertical="@color/gray"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/spinnerClass"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:dropDownWidth="wrap_content"
+                android:dropDownSelector="@color/beige"
+                android:popupBackground="@drawable/spinner_item_background_rounded"
+                android:scrollbarThumbHorizontal="@color/gray"
+                android:scrollbarThumbVertical="@color/gray"
+                android:spinnerMode="dropdown" />
+
+            <EditText
+                android:id="@+id/name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:ems="10"
+                android:hint="Name/Location"
+                android:inputType="text"
+                android:textColor="@color/beige"
+                android:textColorHint="@color/dim_beige" />
+
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Date of event (MM/DD/YYYY)"
+                android:inputType="date"
+                android:textColor="@color/beige"
+                android:textColorHint="@color/dim_beige" />
+
+            <EditText
+                android:id="@+id/editTextTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:ems="10"
+                android:hint="Time of event (hh:mm:ss)"
+                android:inputType="time"
+                android:textColor="@color/beige"
+                android:textColorHint="@color/dim_beige" />
+
+            <Button
+                android:id="@+id/addEventButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/burnt"
+                android:text="Add event"
+                android:textColor="@color/beige" />
+        </LinearLayout>
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:spinnerMode="dropdown" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/name_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name/Location"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@drawable/add_event_icon" />
+        </FrameLayout>
 
-        <EditText
-            android:id="@+id/name_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Name/Location"
-            android:inputType="text" />
-
-        <TextView
-            android:id="@+id/date_display"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/date"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editTextDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:focusable="false"
-            android:hint="Date of event (MM/DD/YYYY)"
-            android:inputType="date" />
-
-        <EditText
-            android:id="@+id/editTextTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Time of event (hh:mm:ss)"
-            android:inputType="time" />
-
-        <Button
-            android:id="@+id/addEventButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/navy"
-            android:text="Add event" />
     </LinearLayout>
 
 </FrameLayout>

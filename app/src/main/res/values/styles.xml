@@ -29,4 +29,26 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">25%</item>
     </style>
+
+    <style name="DialogTheme" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/ltgray</item>
+    </style>
+
+    <style name="CustomDatePickerDialog" parent="Theme.AppCompat">
+        <item name="android:datePickerStyle">@style/CustomDatePickerStyle</item>
+        <item name="android:windowBackground">@drawable/floating_dialog_shape</item>
+        <item name="android:colorAccent">@color/burnt</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <!-- You can also add padding or margins if you want to reduce the size of the dialog -->
+        <item name="android:windowMinWidthMajor">80%</item>
+        <item name="android:windowMinWidthMinor">80%</item>
+        <!-- Add other styling attributes if needed -->
+    </style>
+
+    <style name="CustomDatePickerStyle" parent="android:Widget.Material.DatePicker">
+        <!-- Customize your DatePicker style here -->
+        <!-- You can also define custom attributes for the internal views of the DatePicker -->
+    </style>
+
 </resources>

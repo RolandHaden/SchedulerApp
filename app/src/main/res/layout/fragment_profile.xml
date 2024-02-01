@@ -12,16 +12,37 @@
     android:paddingEnd="20dp"
     tools:context="com.example.schedulerapp.ui.profile.ProfileFragment">
 
-    <TextView
-        android:id="@+id/classText"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/classes"
-        android:textColor="@color/beige"
-        android:textSize="32sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/classText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/classes"
+            android:textColor="@color/beige"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addButton_class"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:contentDescription="@string/add_task"
+            android:focusable="true"
+            android:src="@drawable/baseline_add_24"
+            app:backgroundTint="@color/burnt"
+            app:tint="@color/beige"
+            app:fabCustomSize="50dp" />
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -34,17 +55,6 @@
             android:layout_weight="1"
             tools:listitem="@layout/class_layout" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/addButton_class"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginBottom="20dp"
-            android:clickable="true"
-            android:contentDescription="@string/add_task"
-            android:focusable="true"
-            android:src="@drawable/baseline_add_24"
-            app:backgroundTint="@color/beige" />
     </FrameLayout>
 
 </LinearLayout>
