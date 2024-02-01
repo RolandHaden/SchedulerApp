@@ -1,77 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/taskCardView"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
+    android:backgroundTint="@color/ltgray"
     app:cardCornerRadius="25dp"
     app:cardElevation="4dp">
 
-    <RelativeLayout
-        android:id="@+id/taskRelativeLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/ltgray"
-        android:paddingTop="8dp"
-        android:paddingEnd="8dp"
-        android:paddingBottom="8dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <CheckBox
-                android:id="@+id/taskCheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:autoText="false"
-                android:buttonTint="@color/dim_beige"
-                android:lineSpacingMultiplier="1.1" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="15dp">
 
             <LinearLayout
-                android:id="@+id/taskVerticalLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/taskTitleText"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="Laborum consectetur qui minim et aute anim do esse esse fugiat aute ut"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="Task Title"
                     android:textColor="@color/beige"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/taskDescriptionText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="4"
-                    android:text="Eu excepteur voluptate nulla quis culpa culpa ullamco voluptate. Anim anim eiusmod veniam ex cupidatat enim cupidatat. Eiusmod dolore nisi in consequat quis proident magna mollit sint veniam occaecat enim cillum occaecat. Occaecat laborum dolore non velit aute officia occaecat sint in cillum ex. Pariatur fugiat officia veniam exercitation tempor occaecat enim minim nulla ea cillum."
-                    android:textColor="@color/beige"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/taskDueDateText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:textColor="@color/dim_beige"
-                    android:text="01/24/2023" />
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="Task Description"
+                    android:textColor="@color/beige" />
 
             </LinearLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/taskDeleteButton"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="top"
+                android:clickable="true"
+                android:padding="20dp"
+                android:paddingLeft="10dp"
+                android:src="@drawable/baseline_check_24"
+                app:backgroundTint="@color/burnt"
+                app:fabCustomSize="35dp"
+                app:shapeAppearanceOverlay="@style/fab_3_rounded" />
         </LinearLayout>
 
-    </RelativeLayout>
-</androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/taskDueDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:maxWidth="225dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:text="Task Date"
+            android:textColor="@color/dim_beige" />
 
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

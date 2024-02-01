@@ -1,15 +1,21 @@
 package com.example.schedulerapp.ui.profile;
+
+import java.util.UUID;
+
 //This is for objects that will be displayed through the calendar
 public class classObject {
-    String courseName;
-    String startTime;
-    String endTime;
-    String professorName;
-    public classObject(String courseName, String startTime, String endTime, String professorName) {
+    private String courseName;
+    private String startTime;
+    private String endTime;
+    private String professorName;
+    private final UUID id;
+
+    public classObject(String courseName, String startTime, String endTime, String professorName, UUID id) {
         this.courseName = courseName;
         this.startTime = startTime;
         this.endTime = endTime;
         this.professorName = professorName;
+        this.id = id;
     }
 
     public String getCourseName() {
@@ -42,5 +48,9 @@ public class classObject {
 
     public void setProfessorName(String professorName) {
         this.professorName = professorName;
+    }
+
+    public UUID getId() {
+        return id;
     }
 }

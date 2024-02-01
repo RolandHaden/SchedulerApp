@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
+import com.example.schedulerapp.ui.calendar.CalendarFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -36,9 +38,18 @@ public class classListAdapter extends RecyclerView.Adapter<classListAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         classObject classSelected = classObjectArrayList.get(position);
-        holder.classTitle.setText(classSelected.courseName);
-        holder.profName.setText(classSelected.professorName);
-        holder.times.setText(classSelected.startTime + " - " + classSelected.endTime);
+        holder.classTitle.setText(classSelected.getCourseName());
+        holder.profName.setText(classSelected.getProfessorName());
+        holder.times.setText(classSelected.getStartTime() + " - " + classSelected.getEndTime());
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //removing all instances
+                classObjectArrayList.removeIf(obj -> obj.getId().equals(classSelected.getId()));
+                //CalendarViewModel.removeSpecificEvent(eventSelected.getId());
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
@@ -50,11 +61,13 @@ public class classListAdapter extends RecyclerView.Adapter<classListAdapter.MyVi
         TextView classTitle;
         TextView profName;
         TextView times;
+        FloatingActionButton deleteButton;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             classTitle = itemView.findViewById(R.id.eventType);
             profName = itemView.findViewById(R.id.classEvent);
             times = itemView.findViewById(R.id.classTimes);
+            deleteButton = itemView.findViewById(R.id.classDeleteButton);
         }
     }
 }

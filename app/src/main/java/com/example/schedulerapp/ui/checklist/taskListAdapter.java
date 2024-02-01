@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.RecyclerRowMoveCallback;
 import com.example.schedulerapp.ui.calendar.CalendarViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -113,7 +114,6 @@ public class taskListAdapter extends RecyclerView.Adapter<taskListAdapter.MyView
         holder.taskTitle.setText(specificTask.getTaskTitle());
         holder.taskDescription.setText(specificTask.getTaskDescription());
         holder.taskDueDate.setText(specificTask.getTaskDueDate());
-        holder.checkBox.setChecked(specificTask.isChecked());
     }
 
     /*
@@ -124,7 +124,7 @@ public class taskListAdapter extends RecyclerView.Adapter<taskListAdapter.MyView
         TextView taskTitle;
         TextView taskDescription;
         TextView taskDueDate;
-        CheckBox checkBox;
+        FloatingActionButton taskCompleteBtn;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -133,7 +133,7 @@ public class taskListAdapter extends RecyclerView.Adapter<taskListAdapter.MyView
             taskTitle = itemView.findViewById(R.id.taskTitleText);
             taskDescription = itemView.findViewById(R.id.taskDescriptionText);
             taskDueDate = itemView.findViewById(R.id.taskDueDateText);
-            checkBox = itemView.findViewById(R.id.taskCheckBox);
+            taskCompleteBtn = itemView.findViewById(R.id.taskDeleteButton);
 
             taskTitle.setSelected(true);
 
@@ -144,19 +144,15 @@ public class taskListAdapter extends RecyclerView.Adapter<taskListAdapter.MyView
              * taskObjectArrayList, removes it, and notifies the adapter that the item has been removed
              * with notifyItemRemoved(index). This will result in the RecyclerView updating to reflect the item's removal.
              */
-            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            taskCompleteBtn.setOnClickListener(new View.OnClickListener() {
 
                @Override
-               public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+               public void onClick(View v) {
                    if (getAdapterPosition() != RecyclerView.NO_POSITION) {
                        ChecklistItem item = taskObjectArrayList.get(getAdapterPosition());
-
-                       item.setChecked(isChecked);
-                       if (isChecked) {
-                           taskObjectArrayList.remove(getAdapterPosition());
-                           CalendarViewModel.removeSpecificEvent(item.getID());
-                           notifyItemRemoved(getAdapterPosition());
-                       }
+                       taskObjectArrayList.remove(getAdapterPosition());
+                       CalendarViewModel.removeSpecificEvent(item.getID());
+                       notifyItemRemoved(getAdapterPosition());
                    }
                }
             });

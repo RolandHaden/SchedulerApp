@@ -16,6 +16,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentNewClassBinding;
 
+import java.util.UUID;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -77,7 +79,14 @@ public class NewClassFragment extends Fragment {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ProfileViewModel.addToClassArrayList(new classObject(eName.getText().toString(),eEnd.getText().toString(),eStart.getText().toString(),eInstructor.getText().toString()));
+                ProfileViewModel.addToClassArrayList(new classObject(
+                        eName.getText().toString(),
+                        eEnd.getText().toString(),
+                        eStart.getText().toString(),
+                        eInstructor.getText().toString(),
+                        UUID.randomUUID()
+                ));
+
                 replaceFragment(new ProfileFragment());
             }
         });

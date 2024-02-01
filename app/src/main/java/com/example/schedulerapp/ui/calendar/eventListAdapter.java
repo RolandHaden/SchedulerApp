@@ -5,17 +5,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
-import com.example.schedulerapp.ui.checklist.ChecklistItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -71,7 +66,7 @@ public class eventListAdapter extends RecyclerView.Adapter<eventListAdapter.MyVi
             selectedDate = itemView.findViewById(R.id.eventTime);
             type = itemView.findViewById(R.id.eventType);
             className = itemView.findViewById(R.id.classEvent);
-            deleteButton = itemView.findViewById(R.id.deleteButton);
+            deleteButton = itemView.findViewById(R.id.classDeleteButton);
 //            deleteButton.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {

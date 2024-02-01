@@ -18,6 +18,7 @@ import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentProfileBinding;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class ProfileFragment extends Fragment {
 
@@ -100,7 +101,7 @@ public class ProfileFragment extends Fragment {
                     getString(R.string.classEnd_2)
             };
             for(int i = 0; i < className.length; i++) {
-                classObject classSelected = new classObject(className[i], classStartTimes[i], classEndTimes[i], professorName[i]);
+                classObject classSelected = new classObject(className[i], classStartTimes[i], classEndTimes[i], professorName[i], UUID.randomUUID());
                 classArrayList.add(classSelected);
             }
 
