@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,8 +19,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentNewEventBinding;
-import com.example.schedulerapp.ui.checklist.ChecklistFragment;
+import com.example.schedulerapp.ui.profile.ProfileViewModel;
+import com.example.schedulerapp.ui.profile.classObject;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class NewEventFragment extends Fragment {
@@ -44,6 +45,12 @@ public class NewEventFragment extends Fragment {
         TextView name_location = (TextView) root.findViewById(R.id.name_input);
         EditText editNameLoc = (EditText) root.findViewById(R.id.name_input);
         EditText eTime = root.findViewById(R.id.editTextTime);
+        ArrayList<classObject> classes = ProfileViewModel.getClassArrayList();
+        int n = classes.size();
+        String[] CourseNames = new String[n];
+        for(int i = 0; i < n; i++) {
+            CourseNames[i] = classes.get(i).getCourseName();
+        }
 
         //Spinner object
         Spinner spinner = (Spinner) root.findViewById(R.id.spinnerEvent);
@@ -58,11 +65,10 @@ public class NewEventFragment extends Fragment {
 
 
 
-        ArrayAdapter<CharSequence> classAdapter = ArrayAdapter.createFromResource(
+        ArrayAdapter<CharSequence> classAdapter = new ArrayAdapter(
                 getContext(),
-                R.array.classes,
-                android.R.layout.simple_spinner_item
-        );
+                android.R.layout.simple_spinner_item,
+                CourseNames);
 
         //Spinner Listener that updates the add button when selection is made
         //TODO implement the spinner listener to possibly change views too!
