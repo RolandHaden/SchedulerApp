@@ -101,8 +101,8 @@ public class CalendarFragment extends Fragment {
             eventArrayList = CalendarViewModel.getEventArrayList();
             if (eventArrayList.isEmpty()) {
                 eventObject[] eventArray = new eventObject[]{
-                        new eventObject("1/29/2024", "Class", "Skiles 112", "CS 1331", "3:00 PM"),
-                        new eventObject("1/12/2024", "Class", "Skiles 112", "CS 1331", "3:00 PM"),
+                        new eventObject("2/1/2024", "Class", "Skiles 112", "CS 1331", "3:00 PM"),
+                        new eventObject("2/1/2024", "Class", "Boggs B24", "CS 2340", "6:00 PM"),
                 };
                 eventArrayList.addAll(Arrays.asList(eventArray));
             }
