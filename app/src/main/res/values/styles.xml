@@ -24,4 +24,9 @@
         <item name="android:textColor">@color/dim_beige</item>
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="fab_3_rounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">25%</item>
+    </style>
 </resources>

@@ -42,9 +42,8 @@ public class eventListAdapter extends RecyclerView.Adapter<eventListAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         eventObject eventSelected = eventObjectArrayList.get(position);
-        holder.selectedDate.setText(eventSelected.getSelectedDate() + " - " + eventSelected.getSelectedTime());
+        holder.selectedDate.setText(eventSelected.getLocation() + " - " + eventSelected.getSelectedTime());
         holder.type.setText(eventSelected.getType());
-        holder.eventInfo.setText(eventSelected.getLocation());
         holder.className.setText(eventSelected.getClassName());
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,14 +64,12 @@ public class eventListAdapter extends RecyclerView.Adapter<eventListAdapter.MyVi
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView selectedDate;
         TextView type;
-        TextView eventInfo;
         TextView className;
         FloatingActionButton deleteButton;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             selectedDate = itemView.findViewById(R.id.eventTime);
             type = itemView.findViewById(R.id.eventType);
-            eventInfo = itemView.findViewById(R.id.eventInfo);
             className = itemView.findViewById(R.id.classEvent);
             deleteButton = itemView.findViewById(R.id.deleteButton);
 //            deleteButton.setOnClickListener(new View.OnClickListener() {
