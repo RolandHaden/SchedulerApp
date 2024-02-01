@@ -12,38 +12,40 @@
 
     <CalendarView
         android:id="@+id/simple_calendar_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="313dp"
         android:layout_gravity="center_horizontal"
         android:dateTextAppearance="@style/CalenderViewDateCustomText"
+        android:focusedMonthDateColor="@color/beige"
         android:theme="@style/CalenderViewCustom"
         android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
         android:weekNumberColor="@color/beige"
         android:weekSeparatorLineColor="@color/beige" />
 
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addButton_calendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:clickable="true"
-        android:contentDescription="Add event"
-        android:focusable="true"
-        android:src="@drawable/baseline_add_24"
-        app:backgroundTint="@color/beige" />
-
-    <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="0dp"
-        android:fadingEdgeLength="150dp"
-        android:requiresFadingEdge="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/eventRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </ScrollView>
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addButton_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+            android:contentDescription="Add event"
+            android:focusable="true"
+            android:src="@drawable/baseline_add_24"
+            app:backgroundTint="@color/beige" />
+    </FrameLayout>
+
 
 </LinearLayout>

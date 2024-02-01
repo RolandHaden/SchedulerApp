@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:autoText="false"
-                android:buttonTint="@color/beige"
+                android:buttonTint="@color/dim_beige"
                 android:lineSpacingMultiplier="1.1" />
 
             <LinearLayout
@@ -66,7 +66,7 @@
                     android:layout_gravity="end"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:textColor="@color/beige"
+                    android:textColor="@color/dim_beige"
                     android:text="01/24/2023" />
 
             </LinearLayout>

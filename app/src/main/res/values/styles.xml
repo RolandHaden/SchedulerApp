@@ -9,16 +9,19 @@
         <item name="android:scrollHorizontally">true</item>
     </style>
     <style name="CalenderViewCustom" parent="Theme.AppCompat">
-        <item name="colorAccent">@color/gray</item>
+        <item name="colorAccent">@color/burnt</item>
+        <item name="android:textColorPrimary">@color/beige</item>
         <item name="colorPrimary">@color/beige</item>
     </style>
 
     <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
         <item name="android:textColor">@color/beige</item>
-        <item name="android:weekNumberColor">@color/beige</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:weekNumberColor">@color/dim_beige</item>
     </style>
 
     <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/dim_beige</item>
+        <item name="android:textSize">18sp</item>
     </style>
 </resources>
