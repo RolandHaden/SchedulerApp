@@ -21,6 +21,8 @@
     <string name="classStart_2">10 AM</string>
     <string name="classEnd_1">10 AM</string>
     <string name="classEnd_2">1 PM</string>
+    <string name="classDays_1">M W F</string>
+    <string name="classDays_2">Tu Th</string>
     <string name="hello_blank_fragment">Add an Event</string>
     <string name="new_task_title_field_hint">Title</string>
     <string name="new_task_description_field_hint">Description</string>

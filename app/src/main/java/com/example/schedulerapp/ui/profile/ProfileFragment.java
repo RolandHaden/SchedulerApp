@@ -28,6 +28,7 @@ public class ProfileFragment extends Fragment {
     private String[] professorName;
     private String[] classStartTimes;
     private String[] classEndTimes;
+    private String[] classDays;
     private RecyclerView recyclerview;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -100,8 +101,14 @@ public class ProfileFragment extends Fragment {
                     getString(R.string.classEnd_1),
                     getString(R.string.classEnd_2)
             };
+
+            classDays = new String[]{
+                    getString(R.string.classDays_1),
+                    getString(R.string.classDays_2)
+            };
+
             for(int i = 0; i < className.length; i++) {
-                classObject classSelected = new classObject(className[i], classStartTimes[i], classEndTimes[i], professorName[i], UUID.randomUUID());
+                classObject classSelected = new classObject(className[i], classStartTimes[i], classEndTimes[i], classDays[i], professorName[i], UUID.randomUUID());
                 classArrayList.add(classSelected);
             }
 

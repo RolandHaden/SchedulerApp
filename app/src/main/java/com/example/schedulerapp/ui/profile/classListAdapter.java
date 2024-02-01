@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
-import com.example.schedulerapp.ui.calendar.CalendarFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -40,7 +39,7 @@ public class classListAdapter extends RecyclerView.Adapter<classListAdapter.MyVi
         classObject classSelected = classObjectArrayList.get(position);
         holder.classTitle.setText(classSelected.getCourseName());
         holder.profName.setText(classSelected.getProfessorName());
-        holder.times.setText(classSelected.getStartTime() + " - " + classSelected.getEndTime());
+        holder.times.setText(classSelected.getClassDays() + " | " + classSelected.getStartTime() + " - " + classSelected.getEndTime());
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

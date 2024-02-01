@@ -8,12 +8,14 @@ public class classObject {
     private String startTime;
     private String endTime;
     private String professorName;
+    private String classDays;
     private final UUID id;
 
-    public classObject(String courseName, String startTime, String endTime, String professorName, UUID id) {
+    public classObject(String courseName, String startTime, String endTime, String classDays, String professorName, UUID id) {
         this.courseName = courseName;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.classDays = classDays;
         this.professorName = professorName;
         this.id = id;
     }
@@ -41,6 +43,15 @@ public class classObject {
     public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
+
+    public String getClassDays() {
+        return classDays;
+    }
+
+    public void setClassDays(String classDays) {
+        this.classDays = classDays;
+    }
+
 
     public String getProfessorName() {
         return professorName;

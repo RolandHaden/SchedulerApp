@@ -56,35 +56,37 @@ public class NewClassFragment extends Fragment {
         EditText eStart = root.findViewById(R.id.editTextTimeStart);
         EditText eEnd = root.findViewById(R.id.editTextTimeEnd);
 
-        String weekdays = "";
-        if (eM.isChecked()) {
-            weekdays += "M ";
-        }
-        if (eTu.isChecked()) {
-            weekdays += "Tu ";
-        }
-        if (eW.isChecked()) {
-            weekdays += "W ";
-        }
-        if (eTh.isChecked()) {
-            weekdays += "Th ";
-        }
-        if (eF.isChecked()) {
-            weekdays += "F ";
-        }
-
 
         addButton.setText("Add Class");
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String weekdays = "";
+                if (eM.isChecked()) {
+                    weekdays += "M ";
+                }
+                if (eTu.isChecked()) {
+                    weekdays += "Tu ";
+                }
+                if (eW.isChecked()) {
+                    weekdays += "W ";
+                }
+                if (eTh.isChecked()) {
+                    weekdays += "Th ";
+                }
+                if (eF.isChecked()) {
+                    weekdays += "F ";
+                }
+
                 ProfileViewModel.addToClassArrayList(new classObject(
                         eName.getText().toString(),
                         eEnd.getText().toString(),
                         eStart.getText().toString(),
-                        eInstructor.getText().toString(),
-                        UUID.randomUUID()
+                        weekdays,
+                        eInstructor.getText().toString()
+                        , UUID.randomUUID()
                 ));
 
                 replaceFragment(new ProfileFragment());
