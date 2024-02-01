@@ -40,6 +40,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/classEvent"
             android:text="M W F 1:00 PM - 3:00 PM"
-            android:textColor="@color/beige" />
+            android:textColor="@color/dim_beige" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
