@@ -96,8 +96,6 @@ public class EditEventFragment extends Fragment {
 
             public void onNothingSelected(AdapterView<?> adapterView) {
                 addButton.setBackgroundColor(ContextCompat.getColor(addButton.getContext(), R.color.ltgray));
-                addButton.setText("ADD EVENT");
-                name_location.setHint("Description");
             }
         });
 
