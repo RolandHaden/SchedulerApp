@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:padding="20dp"
+    tools:context=".ui.calendar.EditEventFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Task"
+            android:textColor="@color/beige"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/taskTitleInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:ems="10"
+                android:hint="@string/new_task_title_field_hint"
+                android:inputType="text"
+                android:textColor="@color/beige"
+                android:textColorHighlight="@color/burnt"
+                android:textColorHint="@color/dim_beige"
+                android:textColorLink="#1634F7" />
+
+            <EditText
+                android:id="@+id/taskDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:ems="10"
+                android:hint="@string/new_task_description_field_hint"
+                android:inputType="text"
+                android:textColor="@color/beige"
+                android:textColorHighlight="@color/burnt"
+                android:textColorHint="@color/dim_beige"
+                android:textColorLink="#1634F7" />
+
+            <EditText
+                android:id="@+id/taskDueDateInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/beige"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Date of event (MM/DD/YYYY)"
+                android:inputType="date"
+                android:textColor="@color/beige"
+                android:textColorHighlight="@color/burnt"
+                android:textColorHint="@color/dim_beige"
+                android:textColorLink="#1634F7" />
+
+            <Button
+                android:id="@+id/addTaskButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/burnt"
+                android:text="CONFIRM"
+                android:textColor="@color/beige" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@drawable/add_task_icon" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

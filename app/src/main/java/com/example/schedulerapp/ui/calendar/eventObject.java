@@ -11,6 +11,8 @@ public class eventObject{
     private String selectedTime;
     private UUID id;
 
+    private boolean isTask = false;
+
     public eventObject(String selectedDate, String type, String location, String className, String selectedTime) {
         this.selectedDate = selectedDate;
         this.type = type;
@@ -18,6 +20,14 @@ public class eventObject{
         this.className = className;
         this.selectedTime = selectedTime;
         this.id = UUID.randomUUID();
+    }
+
+    public boolean isTask() {
+        return isTask;
+    }
+
+    public void setIsTask(boolean task) {
+        isTask = task;
     }
 
     public UUID getID() {

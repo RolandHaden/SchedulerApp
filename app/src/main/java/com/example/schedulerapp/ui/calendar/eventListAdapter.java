@@ -5,12 +5,21 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
+import com.example.schedulerapp.databinding.FragmentEditEventBinding;
+import com.example.schedulerapp.ui.checklist.ChecklistViewModel;
 import com.example.schedulerapp.ui.profile.classObject;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -53,13 +62,32 @@ public class eventListAdapter extends RecyclerView.Adapter<eventListAdapter.MyVi
         TextView type;
         TextView className;
         FloatingActionButton deleteButton;
+        CardView eventView;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             selectedDate = itemView.findViewById(R.id.eventTime);
             type = itemView.findViewById(R.id.eventType);
             className = itemView.findViewById(R.id.classEvent);
             deleteButton = itemView.findViewById(R.id.classDeleteButton);
-
+            eventView = itemView.findViewById(R.id.eventCard);
+            eventView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        eventObject selectedEvent = eventObjectArrayList.get(position);
+                        if(!selectedEvent.isTask()) {
+                            // Switching Views
+                            EditEventFragment newFragment = EditEventFragment.newInstance(selectedEvent);
+                            FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                            fragmentTransaction.replace(R.id.frame_layout, newFragment);
+                            fragmentTransaction.addToBackStack(null);
+                            fragmentTransaction.commit();
+                        }
+                    }
+                }
+            });
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -67,11 +95,11 @@ public class eventListAdapter extends RecyclerView.Adapter<eventListAdapter.MyVi
                         eventObject item = eventObjectArrayList.get(getAdapterPosition());
                         eventObjectArrayList.remove(getAdapterPosition());
                         CalendarViewModel.removeSpecificEvent(item.getID());
+                        ChecklistViewModel.removeSpecificTask(item.getID());
                         notifyItemRemoved(getAdapterPosition());
                     }
                 }
             });
         }
-
     }
 }

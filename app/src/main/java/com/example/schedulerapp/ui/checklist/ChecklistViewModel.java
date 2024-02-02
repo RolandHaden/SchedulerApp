@@ -25,6 +25,7 @@ public class ChecklistViewModel extends ViewModel {
         taskArrayList.add(newItem);
         eventObject newEvent = new eventObject(newItem.getTaskDueDate(), "Task", newItem.getTaskDescription(), newItem.getTaskTitle(), newItem.isChecked() ? "Completed" : "Incomplete");
         newEvent.setId(newItem.getID());
+        newEvent.setIsTask(true);
         CalendarViewModel.addToEventArrayList(newEvent);
     }
 
