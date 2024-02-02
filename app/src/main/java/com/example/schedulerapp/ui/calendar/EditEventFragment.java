@@ -21,13 +21,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentEditEventBinding;
-import com.example.schedulerapp.databinding.FragmentNewEventBinding;
-import com.example.schedulerapp.ui.checklist.ChecklistItem;
-import com.example.schedulerapp.ui.checklist.ChecklistViewModel;
 import com.example.schedulerapp.ui.profile.ProfileViewModel;
 import com.example.schedulerapp.ui.profile.classObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.UUID;
@@ -94,7 +90,7 @@ public class EditEventFragment extends Fragment {
                 ((TextView) view).setTextSize(18);
                 ((TextView) view).setPadding(8, 0, 0, 0);
 
-                addButton.setText("ADD " + spinner.getSelectedItem().toString());
+                addButton.setText("CONFIRM");
                 name_location.setHint((spinner.getSelectedItem().equals("Exam")) ? "Exam Location" : "Assignment Title");
             }
 
