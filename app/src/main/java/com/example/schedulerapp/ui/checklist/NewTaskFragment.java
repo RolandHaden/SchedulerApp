@@ -42,11 +42,11 @@ public class NewTaskFragment extends Fragment {
                 int mYear=mcurrentDate.get(Calendar.YEAR);
                 int mMonth=mcurrentDate.get(Calendar.MONTH);
                 int mDay=mcurrentDate.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog mDatePicker = new DatePickerDialog(getContext(), (datepicker, selectedYear, selectedMonth, selectedDay) -> {
+                DatePickerDialog mDatePicker = new DatePickerDialog(getContext(), R.style.CustomDatePickerDialog, (datepicker, selectedYear, selectedMonth, selectedDay) -> {
                     String selectedDate = (selectedMonth + 1) + "/" + selectedDay + "/" + selectedYear;
                     eDate.setText(selectedDate);
                 },mYear, mMonth, mDay);
-                mDatePicker.setTitle("Select event date");
+
                 mDatePicker.show();
 
             }

@@ -19,7 +19,7 @@ public class ProfileViewModel extends ViewModel {
     }
 
     public static void removeSpecificClass(UUID id) {
-        //classArrayList.removeIf(obj -> obj.getId().equals(id));
+//        classArrayList.removeIf(obj -> obj.getId().equals(id));
     }
 
     public LiveData<String> getText() {

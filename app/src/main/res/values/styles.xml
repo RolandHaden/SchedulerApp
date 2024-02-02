@@ -8,6 +8,7 @@
         <item name="android:focusableInTouchMode">true</item>
         <item name="android:scrollHorizontally">true</item>
     </style>
+
     <style name="CalenderViewCustom" parent="Theme.AppCompat">
         <item name="colorAccent">@color/burnt</item>
         <item name="android:textColorPrimary">@color/beige</item>
@@ -30,25 +31,33 @@
         <item name="cornerSize">25%</item>
     </style>
 
-    <style name="DialogTheme" parent="Theme.AppCompat">
-        <item name="colorAccent">@color/ltgray</item>
-    </style>
-
-    <style name="CustomDatePickerDialog" parent="Theme.AppCompat">
+    <style name="CustomDatePickerDialog" parent="android:Theme.Material.Dialog">
         <item name="android:datePickerStyle">@style/CustomDatePickerStyle</item>
         <item name="android:windowBackground">@drawable/floating_dialog_shape</item>
-        <item name="android:colorAccent">@color/burnt</item>
         <item name="android:windowIsFloating">true</item>
+        <item name="android:colorAccent">@color/burnt</item>
+
         <item name="android:windowNoTitle">true</item>
         <!-- You can also add padding or margins if you want to reduce the size of the dialog -->
         <item name="android:windowMinWidthMajor">80%</item>
         <item name="android:windowMinWidthMinor">80%</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/custom_pos_button</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/custom_neg_button</item>
         <!-- Add other styling attributes if needed -->
     </style>
 
-    <style name="CustomDatePickerStyle" parent="android:Widget.Material.DatePicker">
-        <!-- Customize your DatePicker style here -->
-        <!-- You can also define custom attributes for the internal views of the DatePicker -->
+    <style name="CustomDatePickerStyle" parent="@android:style/Widget.Material.DatePicker">
+        <item name="android:headerBackground">@color/ltgray</item>
+    </style>
+
+    <style name="custom_pos_button">
+        <item name="android:backgroundTint">@color/burnt</item>
+        <item name="android:textColor">@color/beige</item>
+    </style>
+
+    <style name="custom_neg_button">
+        <item name="android:textColor">@color/beige</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
 
 </resources>

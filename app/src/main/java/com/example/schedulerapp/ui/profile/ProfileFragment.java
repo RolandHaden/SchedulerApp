@@ -103,8 +103,8 @@ public class ProfileFragment extends Fragment {
             };
 
             classDays = new String[]{
-                    getString(R.string.classDays_1),
-                    getString(R.string.classDays_2)
+                    getString(R.string.classDays_1) + " ",
+                    getString(R.string.classDays_2) + " "
             };
 
             for(int i = 0; i < className.length; i++) {

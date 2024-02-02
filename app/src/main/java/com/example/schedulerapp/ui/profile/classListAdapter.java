@@ -39,7 +39,7 @@ public class classListAdapter extends RecyclerView.Adapter<classListAdapter.MyVi
         classObject classSelected = classObjectArrayList.get(position);
         holder.classTitle.setText(classSelected.getCourseName());
         holder.profName.setText(classSelected.getProfessorName());
-        holder.times.setText(classSelected.getClassDays() + " | " + classSelected.getStartTime() + " - " + classSelected.getEndTime());
+        holder.times.setText(classSelected.getClassDays() + "| " + classSelected.getStartTime() + " - " + classSelected.getEndTime());
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
