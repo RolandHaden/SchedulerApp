@@ -20,7 +20,7 @@ public class eventObject{
         this.id = UUID.randomUUID();
     }
 
-    public UUID getId() {
+    public UUID getID() {
         return id;
     }
 

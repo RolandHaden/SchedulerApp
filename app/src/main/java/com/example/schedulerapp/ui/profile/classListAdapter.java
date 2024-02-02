@@ -11,13 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
+import com.example.schedulerapp.ui.calendar.CalendarViewModel;
+import com.example.schedulerapp.ui.checklist.ChecklistItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 public class classListAdapter extends RecyclerView.Adapter<classListAdapter.MyViewHolder> {
     Context context;
-    ArrayList<classObject> classObjectArrayList;
+    static ArrayList<classObject> classObjectArrayList;
     public classListAdapter(Context context, ArrayList<classObject> classObjectArrayList) {
         this.context = context;
         this.classObjectArrayList = classObjectArrayList;
@@ -40,15 +42,6 @@ public class classListAdapter extends RecyclerView.Adapter<classListAdapter.MyVi
         holder.classTitle.setText(classSelected.getCourseName());
         holder.profName.setText(classSelected.getProfessorName());
         holder.times.setText(classSelected.getClassDays() + "| " + classSelected.getStartTime() + " - " + classSelected.getEndTime());
-        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //removing all instances
-                classObjectArrayList.removeIf(obj -> obj.getId().equals(classSelected.getId()));
-                //CalendarViewModel.removeSpecificEvent(eventSelected.getId());
-                notifyDataSetChanged();
-            }
-        });
     }
 
     @Override
@@ -56,7 +49,7 @@ public class classListAdapter extends RecyclerView.Adapter<classListAdapter.MyVi
         return classObjectArrayList.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView classTitle;
         TextView profName;
         TextView times;
@@ -67,6 +60,18 @@ public class classListAdapter extends RecyclerView.Adapter<classListAdapter.MyVi
             profName = itemView.findViewById(R.id.classEvent);
             times = itemView.findViewById(R.id.classTimes);
             deleteButton = itemView.findViewById(R.id.classDeleteButton);
+
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (getAdapterPosition() != RecyclerView.NO_POSITION) {
+                        classObject item = classObjectArrayList.get(getAdapterPosition());
+                        classObjectArrayList.remove(getAdapterPosition());
+                        CalendarViewModel.removeSpecificEvent(item.getID());
+                        notifyItemRemoved(getAdapterPosition());
+                    }
+                }
+            });
         }
     }
 }

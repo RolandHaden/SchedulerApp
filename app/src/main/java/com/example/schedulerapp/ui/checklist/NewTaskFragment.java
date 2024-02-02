@@ -35,6 +35,7 @@ public class NewTaskFragment extends Fragment {
 
         Button addButton = (Button) root.findViewById(R.id.addTaskButton);
         EditText eDate = (EditText) root.findViewById(R.id.taskDueDateInput);
+
         eDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +52,7 @@ public class NewTaskFragment extends Fragment {
 
             }
         });
+
         addButton.setOnClickListener(new View.OnClickListener() {
             final EditText taskTitleField = (EditText) root.findViewById(R.id.taskTitleInput);
             final EditText taskDescriptionField = (EditText) root.findViewById(R.id.taskDescriptionInput);

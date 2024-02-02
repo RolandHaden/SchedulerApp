@@ -61,7 +61,8 @@ public class classObject {
         this.professorName = professorName;
     }
 
-    public UUID getId() {
+    public UUID getID() {
         return id;
     }
+
 }

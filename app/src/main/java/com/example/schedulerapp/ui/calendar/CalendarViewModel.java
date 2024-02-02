@@ -22,7 +22,7 @@ public class CalendarViewModel extends ViewModel {
         mText.setValue("This is calendar fragment");
     }
     public static void removeSpecificEvent(UUID id) {
-        eventArrayList.removeIf(obj -> obj.getId().equals(id));
+        eventArrayList.removeIf(obj -> obj.getID().equals(id));
 
     }
 

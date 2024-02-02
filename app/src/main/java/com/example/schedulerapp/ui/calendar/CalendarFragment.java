@@ -21,6 +21,7 @@ import com.example.schedulerapp.databinding.FragmentCalendarBinding;
 import com.example.schedulerapp.ui.checklist.ChecklistFragment;
 import com.example.schedulerapp.ui.checklist.ChecklistItem;
 import com.example.schedulerapp.ui.checklist.ChecklistViewModel;
+import com.example.schedulerapp.ui.profile.ProfileFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,8 +42,8 @@ public class CalendarFragment extends Fragment {
     }
 
     public static void removeSpecificStoredEvent(UUID id) {
-        eventArrayList.removeIf(obj -> obj.getId().equals(id));
-        storedEventArrayList.removeIf(obj -> obj.getId().equals(id));
+        eventArrayList.removeIf(obj -> obj.getID().equals(id));
+        storedEventArrayList.removeIf(obj -> obj.getID().equals(id));
         ChecklistViewModel.removeSpecificTask(id);
     }
 

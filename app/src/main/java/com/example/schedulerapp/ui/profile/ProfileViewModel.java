@@ -18,10 +18,6 @@ public class ProfileViewModel extends ViewModel {
         mText.setValue("This is profile fragment");
     }
 
-    public static void removeSpecificClass(UUID id) {
-//        classArrayList.removeIf(obj -> obj.getId().equals(id));
-    }
-
     public LiveData<String> getText() {
         return mText;
     }

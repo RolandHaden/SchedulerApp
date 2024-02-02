@@ -63,12 +63,12 @@ public class NewEventFragment extends Fragment {
                 android.R.layout.simple_spinner_item
         );
 
-
-
         ArrayAdapter<CharSequence> classAdapter = new ArrayAdapter(
                 getContext(),
                 android.R.layout.simple_spinner_item,
-                CourseNames);
+                CourseNames
+        );
+
 
         //Spinner Listener that updates the add button when selection is made
         //TODO implement the spinner listener to possibly change views too!

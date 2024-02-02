@@ -39,6 +39,8 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        dataInitialize();
+
         return root;
     }
 
@@ -51,8 +53,6 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        dataInitialize();
 
         recyclerview = view.findViewById(R.id.profileRecyclerView);
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -78,7 +78,7 @@ public class ProfileFragment extends Fragment {
     }
 
 
-    private void dataInitialize() {
+    public void dataInitialize() {
         classArrayList = ProfileViewModel.getClassArrayList();
         if (classArrayList.isEmpty()) {
             className = new String[]{
