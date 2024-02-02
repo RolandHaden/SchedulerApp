@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="@string/add_task"
             android:textColor="@color/beige"
-            android:textSize="30sp"
+            android:textSize="32sp"
             android:textStyle="bold" />
 
         <LinearLayout
