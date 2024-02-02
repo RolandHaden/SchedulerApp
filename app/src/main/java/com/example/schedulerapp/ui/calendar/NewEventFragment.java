@@ -52,6 +52,10 @@ public class NewEventFragment extends Fragment {
             CourseNames[i] = classes.get(i).getCourseName();
         }
 
+        if (ProfileViewModel.getClassArrayList().size() == 0) {
+            CourseNames = new String[]{"No Courses Added"};
+        }
+
         //Spinner object
         Spinner spinner = (Spinner) root.findViewById(R.id.spinnerEvent);
         Spinner classSpinner = (Spinner) root.findViewById(R.id.spinnerClass);
