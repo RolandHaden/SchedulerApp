@@ -98,6 +98,18 @@ public class MainActivity extends AppCompatActivity {
         // Save data to SharedPreferences for ProfileViewModel
         saveClassDataToSharedPreferences();
     }
+
+    public static void saveAllData() {
+        // Save data to SharedPreferences for CalendarViewModel
+        saveCalendarDataToSharedPreferences();
+
+        // Save data to SharedPreferences for ChecklistViewModel
+        saveChecklistDataToSharedPreferences();
+
+        // Save data to SharedPreferences for ProfileViewModel
+        saveClassDataToSharedPreferences();
+    }
+
     //Loading Calendar Data
     private void loadCalendarDataFromSharedPreferences() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -113,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     //Saving Calendar .
-    private void saveCalendarDataToSharedPreferences() {
+    private static void saveCalendarDataToSharedPreferences() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -135,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     //Saving Data from Checklist
-    private void saveChecklistDataToSharedPreferences() {
+    private static void saveChecklistDataToSharedPreferences() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -157,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     //Saving Data from Profile
-    private void saveClassDataToSharedPreferences() {
+    private static void saveClassDataToSharedPreferences() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
