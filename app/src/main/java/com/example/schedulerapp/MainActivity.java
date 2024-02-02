@@ -98,6 +98,18 @@ public class MainActivity extends AppCompatActivity {
         // Save data to SharedPreferences for ProfileViewModel
         saveClassDataToSharedPreferences();
     }
+
+//    public static void saveAllData() {
+//        // Save data to SharedPreferences for CalendarViewModel
+//        saveCalendarDataToSharedPreferences();
+//
+//        // Save data to SharedPreferences for ChecklistViewModel
+//        saveChecklistDataToSharedPreferences();
+//
+//        // Save data to SharedPreferences for ProfileViewModel
+//        saveClassDataToSharedPreferences();
+//    }
+
     //Loading Calendar Data
     private void loadCalendarDataFromSharedPreferences() {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
