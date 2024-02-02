@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.schedulerapp.NotificationSender;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class CalendarViewModel extends ViewModel {
     }
 
     public static void addToEventArrayList(eventObject obj) {
+        //Testing Notifications
         eventArrayList.add(obj);
     }
 

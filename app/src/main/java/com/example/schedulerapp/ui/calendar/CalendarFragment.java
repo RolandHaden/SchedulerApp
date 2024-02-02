@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.schedulerapp.NotificationSender;
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.databinding.FragmentCalendarBinding;
 import com.example.schedulerapp.ui.checklist.ChecklistFragment;
@@ -36,7 +37,6 @@ public class CalendarFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentCalendarBinding.inflate(inflater, container, false);
-
         return binding.getRoot();
     }
 
@@ -77,6 +77,7 @@ public class CalendarFragment extends Fragment {
                 //+1 is added to the month b/c CalendarView starts Jan with a 0.
                 sortArraytoDate((month + 1) + "/" + dayOfMonth + "/" + year);
                 myAdapter.notifyDataSetChanged();
+
             }
         });
     }
