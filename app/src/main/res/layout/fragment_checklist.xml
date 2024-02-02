@@ -56,7 +56,8 @@
             android:layout_weight="1"
             android:nestedScrollingEnabled="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:layout_editor_absoluteY="63dp">
+            tools:layout_editor_absoluteY="63dp"
+            tools:listitem="@layout/task_layout">
 
         </androidx.recyclerview.widget.RecyclerView>
 
