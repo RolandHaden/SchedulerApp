@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -51,6 +52,13 @@ public class NewEventFragment extends Fragment {
         for(int i = 0; i < n; i++) {
             CourseNames[i] = classes.get(i).getCourseName();
         }
+        if (n==0) {
+            replaceFragment(new CalendarFragment());
+            Toast myToast = Toast.makeText(getActivity(), "No Classes Added!!", Toast.LENGTH_SHORT);
+            myToast.show();
+        }
+
+
 
         if (ProfileViewModel.getClassArrayList().size() == 0) {
             CourseNames = new String[]{"No Courses Added"};
