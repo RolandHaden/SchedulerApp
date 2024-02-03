@@ -5,22 +5,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
-import com.example.schedulerapp.databinding.FragmentEditEventBinding;
 import com.example.schedulerapp.ui.checklist.ChecklistViewModel;
-import com.example.schedulerapp.ui.profile.classObject;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -53,6 +48,8 @@ public class eventListAdapter extends RecyclerView.Adapter<eventListAdapter.MyVi
         //Removing delete button for specific events
         if(eventSelected.isTask() || eventSelected.isClass()) {
             holder.deleteButton.setVisibility(View.GONE);
+        } else {
+            holder.deleteButton.setVisibility(View.VISIBLE);
         }
     }
 
@@ -67,6 +64,7 @@ public class eventListAdapter extends RecyclerView.Adapter<eventListAdapter.MyVi
         TextView className;
         FloatingActionButton deleteButton;
         CardView eventView;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             selectedDate = itemView.findViewById(R.id.eventTime);

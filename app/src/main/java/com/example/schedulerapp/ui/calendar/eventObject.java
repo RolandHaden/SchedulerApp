@@ -14,7 +14,6 @@ public class eventObject{
     private boolean isTask = false;
     private boolean isClass = false;
 
-
     public eventObject(String selectedDate, String type, String location, String className, String selectedTime) {
         this.selectedDate = selectedDate;
         this.type = type;
