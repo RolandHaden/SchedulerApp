@@ -50,6 +50,10 @@ public class eventListAdapter extends RecyclerView.Adapter<eventListAdapter.MyVi
         holder.selectedDate.setText(eventSelected.getLocation() + " - " + eventSelected.getSelectedTime());
         holder.type.setText(eventSelected.getType());
         holder.className.setText(eventSelected.getClassName());
+        //Removing delete button for specific events
+        if(eventSelected.isTask() || eventSelected.isClass()) {
+            holder.deleteButton.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -76,7 +80,7 @@ public class eventListAdapter extends RecyclerView.Adapter<eventListAdapter.MyVi
                     int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
                         eventObject selectedEvent = eventObjectArrayList.get(position);
-                        if(!selectedEvent.isTask()) {
+                        if(!selectedEvent.isTask() && !selectedEvent.isClass()) {
                             // Switching Views
                             EditEventFragment newFragment = EditEventFragment.newInstance(selectedEvent);
                             FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();

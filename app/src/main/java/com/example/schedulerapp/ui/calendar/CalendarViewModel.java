@@ -35,7 +35,6 @@ public class CalendarViewModel extends ViewModel {
     }
 
     public static void addToEventArrayList(eventObject obj) {
-        //Testing Notifications
         eventArrayList.add(obj);
     }
 
