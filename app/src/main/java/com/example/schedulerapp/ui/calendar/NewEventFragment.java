@@ -55,7 +55,7 @@ public class NewEventFragment extends Fragment {
         }
         if (n==0) {
             replaceFragment(new CalendarFragment());
-            Toast myToast = Toast.makeText(getActivity(), "No Classes Added!!", Toast.LENGTH_SHORT);
+            Toast myToast = Toast.makeText(getActivity(), "Add A Class First", Toast.LENGTH_SHORT);
             myToast.show();
         }
 
