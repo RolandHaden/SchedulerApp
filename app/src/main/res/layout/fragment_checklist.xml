@@ -11,7 +11,7 @@
     android:paddingStart="20dp"
     android:paddingTop="20dp"
     android:paddingEnd="20dp"
-    tools:context="com.example.schedulerapp.ui.calendar.CalendarFragment">
+    tools:context="com.example.schedulerapp.ui.checklist.ChecklistFragment">
 
 
     <LinearLayout

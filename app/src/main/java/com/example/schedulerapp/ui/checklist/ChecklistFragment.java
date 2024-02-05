@@ -84,17 +84,7 @@ public class ChecklistFragment extends Fragment {
         touchHelper.attachToRecyclerView(recyclerView);
     }
 
-    private void dataInitialize() {
-        if (checklistViewModel.getTaskArrayList().isEmpty()) {
-            addToTaskArrayList(
-                    "Sample Task Title",
-                    "Sample task description",
-                    "1/1/2024",
-                    false,
-                    UUID.randomUUID()
-            );
-        }
-    }
+    private void dataInitialize() { }
 
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getParentFragmentManager();

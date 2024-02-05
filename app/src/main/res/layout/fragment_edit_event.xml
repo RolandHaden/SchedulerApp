@@ -74,7 +74,7 @@
                 android:backgroundTint="@color/beige"
                 android:ems="10"
                 android:focusable="false"
-                android:hint="Date of event (MM/DD/YYYY)"
+                android:hint="Add Date"
                 android:inputType="date"
                 android:textColor="@color/beige"
                 android:textColorHint="@color/dim_beige" />
@@ -86,7 +86,7 @@
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/beige"
                 android:ems="10"
-                android:hint="Time of event (hh:mm:ss)"
+                android:hint="Add Time"
                 android:inputType="time"
                 android:textColor="@color/beige"
                 android:textColorHint="@color/dim_beige" />
