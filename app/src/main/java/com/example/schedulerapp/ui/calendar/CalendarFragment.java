@@ -101,7 +101,7 @@ public class CalendarFragment extends Fragment {
      *
      * @param dateString The selected date in "MM/dd/yyyy" format.
      */
-    private void sortArraytoDate(String dateString) {
+    public static void sortArraytoDate(String dateString) {
         storedEventArrayList.clear();
         storedClassArrayList.clear();
         System.out.println(dateString);

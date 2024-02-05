@@ -12,11 +12,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schedulerapp.R;
 import com.example.schedulerapp.RecyclerRowMoveCallback;
 import com.example.schedulerapp.ui.calendar.CalendarViewModel;
+import com.example.schedulerapp.ui.profile.EditClassFragment;
+import com.example.schedulerapp.ui.profile.classObject;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -125,6 +130,7 @@ public class taskListAdapter extends RecyclerView.Adapter<taskListAdapter.MyView
         TextView taskDescription;
         TextView taskDueDate;
         FloatingActionButton taskCompleteBtn;
+        CardView taskView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -134,7 +140,22 @@ public class taskListAdapter extends RecyclerView.Adapter<taskListAdapter.MyView
             taskDescription = itemView.findViewById(R.id.taskDescriptionText);
             taskDueDate = itemView.findViewById(R.id.taskDueDateText);
             taskCompleteBtn = itemView.findViewById(R.id.taskDeleteButton);
-
+            taskCardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        ChecklistItem selectedTask = taskObjectArrayList.get(position);
+                        // Switching Views
+                        EditTaskFragment newFragment = EditTaskFragment.newInstance(selectedTask);
+                        FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.frame_layout, newFragment);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }
+                }
+            });
             taskTitle.setSelected(true);
 
             /*
