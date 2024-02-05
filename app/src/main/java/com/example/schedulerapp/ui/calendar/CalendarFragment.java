@@ -118,31 +118,26 @@ public class CalendarFragment extends Fragment {
                 throw new RuntimeException(e);
             }
             int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
-            eventObject newClassEvent = new eventObject(dateString, "Class", obj.getProfessorName(), obj.getCourseName(), obj.getClassDays() + " | " + obj.getStartTime() + " - " + obj.getEndTime());
+            eventObject newClassEvent = new eventObject(dateString, "Class", obj.getProfessorName(), obj.getCourseName(), obj.getClassDays() + "| " + obj.getStartTime() + " - " + obj.getEndTime());
             newClassEvent.setIsClass(true);
             switch (dayOfWeek) {
                 case 2: if (obj.getClassDays().contains("M")) {
-                    //newClassEvent = new eventObject(dateString, "Class", obj.getProfessorName(), obj.getCourseName(), obj.getClassDays() + " | " + obj.getStartTime() + " - " + obj.getEndTime());
                     storedEventArrayList.add(newClassEvent);
                 }
                     break;
                 case 3: if (obj.getClassDays().contains("Tu")) {
-                    //storedEventArrayList.add(new eventObject(dateString, "Class", obj.getProfessorName(), obj.getCourseName(), obj.getClassDays() + " | " + obj.getStartTime() + " - " + obj.getEndTime()));
                     storedEventArrayList.add(newClassEvent);
                 }
                     break;
                 case 4: if (obj.getClassDays().contains("W")) {
-                    //storedEventArrayList.add(new eventObject(dateString, "Class", obj.getProfessorName(), obj.getCourseName(), obj.getClassDays() + " | " + obj.getStartTime() + " - " + obj.getEndTime()));
                     storedEventArrayList.add(newClassEvent);
                 }
                     break;
                 case 5: if (obj.getClassDays().contains("Th")) {
-                    //storedEventArrayList.add(new eventObject(dateString, "Class", obj.getProfessorName(), obj.getCourseName(), obj.getClassDays() + " | " + obj.getStartTime() + " - " + obj.getEndTime()));
                     storedEventArrayList.add(newClassEvent);
                 }
                     break;
                 case 6: if (obj.getClassDays().contains("F")) {
-                    //storedEventArrayList.add(new eventObject(dateString, "Class", obj.getProfessorName(), obj.getCourseName(), obj.getClassDays() + " | " + obj.getStartTime() + " - " + obj.getEndTime()));
                     storedEventArrayList.add(newClassEvent);
                 }
                     break;

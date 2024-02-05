@@ -48,6 +48,7 @@ public class NewTaskFragment extends Fragment {
                     eDate.setText(selectedDate);
                 },mYear, mMonth, mDay);
 
+                mDatePicker.setMessage("SELECT DUE DATE");
                 mDatePicker.show();
 
             }

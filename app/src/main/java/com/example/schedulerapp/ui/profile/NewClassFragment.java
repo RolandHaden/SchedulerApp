@@ -2,6 +2,7 @@ package com.example.schedulerapp.ui.profile;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,11 +104,13 @@ public class NewClassFragment extends Fragment {
                 int minute = mcurrentTime.get(Calendar.MINUTE);
 
                 TimePickerDialog mTimePicker = new TimePickerDialog(getContext(),
+                        R.style.CustomTimePickerDialog,
                         (timePicker, selectedHour, selectedMinute) -> {
                             String selectedTime = String.format("%02d:%02d%s", selectedHour > 12 ? selectedHour - 12 : selectedHour, selectedMinute,selectedHour > 12 ? " PM" : " AM");
                             eStart.setText(selectedTime);
                         }, hour, minute, false);
 
+                mTimePicker.setMessage("SELECT START TIME");
                 mTimePicker.show();
             }
         });
@@ -120,11 +123,13 @@ public class NewClassFragment extends Fragment {
                 int minute = mcurrentTime.get(Calendar.MINUTE);
 
                 TimePickerDialog mTimePicker = new TimePickerDialog(getContext(),
+                        R.style.CustomTimePickerDialog,
                         (timePicker, selectedHour, selectedMinute) -> {
                             String selectedTime = String.format("%02d:%02d%s", selectedHour > 12 ? selectedHour - 12 : selectedHour, selectedMinute,selectedHour > 12 ? " PM" : " AM");
                             eEnd.setText(selectedTime);
                         }, hour, minute, false);
 
+                mTimePicker.setMessage("SELECT END TIME");
                 mTimePicker.show();
             }
         });

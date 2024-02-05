@@ -31,6 +31,7 @@
         <item name="cornerSize">25%</item>
     </style>
 
+
     <style name="CustomDatePickerDialog" parent="android:Theme.Material.Dialog">
         <item name="android:datePickerStyle">@style/CustomDatePickerStyle</item>
         <item name="android:windowBackground">@drawable/floating_dialog_shape</item>
@@ -38,17 +39,50 @@
         <item name="android:colorAccent">@color/burnt</item>
 
         <item name="android:windowNoTitle">true</item>
-        <!-- You can also add padding or margins if you want to reduce the size of the dialog -->
         <item name="android:windowMinWidthMajor">80%</item>
         <item name="android:windowMinWidthMinor">80%</item>
         <item name="android:buttonBarPositiveButtonStyle">@style/custom_pos_button</item>
         <item name="android:buttonBarNegativeButtonStyle">@style/custom_neg_button</item>
-        <!-- Add other styling attributes if needed -->
+
+
+        <item name="android:textColorPrimary">@color/beige</item>
+        <item name="android:textColorSecondary">@color/dim_beige</item>
+        <item name="android:textColorPrimaryInverse">@color/beige</item>
     </style>
 
     <style name="CustomDatePickerStyle" parent="@android:style/Widget.Material.DatePicker">
         <item name="android:headerBackground">@color/ltgray</item>
+        <item name="android:headerMonthTextAppearance">@style/CustomHeaderMonthTextAppearance</item>
     </style>
+
+    <style name="CustomHeaderMonthTextAppearance" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/beige</item>
+    </style>
+
+
+    <style name="CustomTimePickerDialog" parent="android:Theme.Material.Dialog">
+        <item name="android:timePickerStyle">@style/CustomTimePickerStyle</item>
+        <item name="android:windowBackground">@drawable/floating_dialog_shape</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:colorAccent">@color/burnt</item>
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowMinWidthMajor">80%</item>
+        <item name="android:windowMinWidthMinor">80%</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/custom_pos_button</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/custom_neg_button</item>
+
+        <item name="android:textColor">@color/beige</item>
+        <item name="android:textColorPrimary">@color/beige</item>
+        <item name="android:textColorSecondary">@color/dim_beige</item>
+        <item name="android:textColorPrimaryInverse">@color/beige</item>
+    </style>
+
+    <style name="CustomTimePickerStyle" parent="@android:style/Widget.Material.TimePicker">
+        <item name="android:headerBackground">@color/ltgray</item>
+        <item name="android:timePickerMode">spinner</item>
+    </style>
+
 
     <style name="custom_pos_button">
         <item name="android:backgroundTint">@color/burnt</item>

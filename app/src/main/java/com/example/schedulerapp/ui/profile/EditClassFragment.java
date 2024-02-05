@@ -112,11 +112,13 @@ public class EditClassFragment extends Fragment {
                 int minute = mcurrentTime.get(Calendar.MINUTE);
 
                 TimePickerDialog mTimePicker = new TimePickerDialog(getContext(),
+                        R.style.CustomTimePickerDialog,
                         (timePicker, selectedHour, selectedMinute) -> {
                             String selectedTime = String.format("%02d:%02d%s", selectedHour > 12 ? selectedHour - 12 : selectedHour, selectedMinute,selectedHour > 12 ? " PM" : " AM");
                             eStart.setText(selectedTime);
                         }, hour, minute, false);
 
+                mTimePicker.setMessage("EDIT START TIME");
                 mTimePicker.show();
             }
         });
@@ -129,11 +131,13 @@ public class EditClassFragment extends Fragment {
                 int minute = mcurrentTime.get(Calendar.MINUTE);
 
                 TimePickerDialog mTimePicker = new TimePickerDialog(getContext(),
+                        R.style.CustomTimePickerDialog,
                         (timePicker, selectedHour, selectedMinute) -> {
                             String selectedTime = String.format("%02d:%02d%s", selectedHour > 12 ? selectedHour - 12 : selectedHour, selectedMinute,selectedHour > 12 ? " PM" : " AM");
                             eEnd.setText(selectedTime);
                         }, hour, minute, false);
 
+                mTimePicker.setMessage("EDIT END TIME");
                 mTimePicker.show();
             }
         });

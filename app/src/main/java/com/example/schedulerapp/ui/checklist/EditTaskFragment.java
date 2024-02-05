@@ -66,6 +66,7 @@ public class EditTaskFragment extends Fragment {
                     eDate.setText(selectedDate);
                 },mYear, mMonth, mDay);
 
+                mDatePicker.setMessage("EDIT DUE DATE");
                 mDatePicker.show();
 
             }

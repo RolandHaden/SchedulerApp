@@ -62,7 +62,7 @@
                 android:backgroundTint="@color/beige"
                 android:ems="10"
                 android:focusable="false"
-                android:hint="Add Date"
+                android:hint="Due Date"
                 android:inputType="date"
                 android:textColor="@color/beige"
                 android:textColorHighlight="@color/burnt"
