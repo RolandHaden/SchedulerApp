@@ -147,8 +147,8 @@ public class EditClassFragment extends Fragment {
 
     private void importData(classObject classData) {
         String daysOfWeek = classData.getClassDays();
-        binding.editTextTimeEnd.setText(classData.getEndTime());
         binding.editTextTimeStart.setText(classData.getStartTime());
+        binding.editTextTimeEnd.setText(classData.getEndTime());
         binding.nameInput.setText(classData.getCourseName());
         binding.instructorInput.setText(classData.getProfessorName());
         if(daysOfWeek.contains("M")) {

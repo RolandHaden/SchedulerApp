@@ -85,8 +85,8 @@ public class NewClassFragment extends Fragment {
 
                 ProfileViewModel.addToClassArrayList(new classObject(
                         eName.getText().toString(),
-                        eEnd.getText().toString(),
                         eStart.getText().toString(),
+                        eEnd.getText().toString(),
                         weekdays,
                         eInstructor.getText().toString()
                         , UUID.randomUUID()
