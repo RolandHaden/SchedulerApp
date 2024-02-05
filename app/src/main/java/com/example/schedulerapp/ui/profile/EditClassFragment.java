@@ -1,5 +1,6 @@
 package com.example.schedulerapp.ui.profile;
 
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.example.schedulerapp.ui.calendar.CalendarViewModel;
 import com.example.schedulerapp.ui.calendar.EditEventFragment;
 import com.example.schedulerapp.ui.calendar.eventObject;
 
+import java.util.Calendar;
 import java.util.UUID;
 
 
@@ -96,14 +98,43 @@ public class EditClassFragment extends Fragment {
                         obj.setEndTime(eEnd.getText().toString());
                         obj.setProfessorName(eInstructor.getText().toString());
                         obj.setClassDays(weekdays);
-//                        obj.setSelectedDate(String.valueOf(eDate.getText()));
-//                        obj.setSelectedTime(String.valueOf(eTime.getText()));
-//                        obj.setType(spinner.getSelectedItem().toString());
-//                        obj.setLocation(String.valueOf(name_location.getText()));
-//                        obj.setClassName(classSpinner.getSelectedItem().toString());
                     }
                 }
                 replaceFragment(new ProfileFragment());
+            }
+        });
+
+        eStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+
+                TimePickerDialog mTimePicker = new TimePickerDialog(getContext(),
+                        (timePicker, selectedHour, selectedMinute) -> {
+                            String selectedTime = String.format("%02d:%02d%s", selectedHour > 12 ? selectedHour - 12 : selectedHour, selectedMinute,selectedHour > 12 ? " PM" : " AM");
+                            eStart.setText(selectedTime);
+                        }, hour, minute, false);
+
+                mTimePicker.show();
+            }
+        });
+
+        eEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+
+                TimePickerDialog mTimePicker = new TimePickerDialog(getContext(),
+                        (timePicker, selectedHour, selectedMinute) -> {
+                            String selectedTime = String.format("%02d:%02d%s", selectedHour > 12 ? selectedHour - 12 : selectedHour, selectedMinute,selectedHour > 12 ? " PM" : " AM");
+                            eEnd.setText(selectedTime);
+                        }, hour, minute, false);
+
+                mTimePicker.show();
             }
         });
 

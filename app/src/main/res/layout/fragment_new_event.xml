@@ -87,6 +87,7 @@
                 android:backgroundTint="@color/beige"
                 android:ems="10"
                 android:hint="Add Time"
+                android:focusable="false"
                 android:inputType="time"
                 android:textColor="@color/beige"
                 android:textColorHint="@color/dim_beige" />

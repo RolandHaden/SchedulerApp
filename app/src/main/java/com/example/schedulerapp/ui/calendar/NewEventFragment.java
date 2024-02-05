@@ -1,6 +1,7 @@
 package com.example.schedulerapp.ui.calendar;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -141,6 +142,24 @@ public class NewEventFragment extends Fragment {
 
             }
         });
+
+        eTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+
+                TimePickerDialog mTimePicker = new TimePickerDialog(getContext(),
+                        (timePicker, selectedHour, selectedMinute) -> {
+                            String selectedTime = String.format("%02d:%02d%s", selectedHour > 12 ? selectedHour - 12 : selectedHour, selectedMinute,selectedHour > 12 ? " PM" : " AM");
+                            eTime.setText(selectedTime);
+                        }, hour, minute, false);
+
+                mTimePicker.show();
+            }
+        });
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

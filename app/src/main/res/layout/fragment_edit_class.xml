@@ -106,6 +106,7 @@
                 android:backgroundTint="@color/beige"
                 android:ems="10"
                 android:hint="Add Start Time"
+                android:focusable="false"
                 android:inputType="time"
                 android:textColor="@color/beige"
                 android:textColorHint="@color/dim_beige" />
@@ -118,6 +119,7 @@
                 android:backgroundTint="@color/beige"
                 android:ems="10"
                 android:hint="Add End Time"
+                android:focusable="false"
                 android:inputType="time"
                 android:textColor="@color/beige"
                 android:textColorHint="@color/dim_beige" />
