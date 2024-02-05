@@ -70,7 +70,7 @@ public class EditClassFragment extends Fragment {
         EditText eEnd = root.findViewById(R.id.editTextTimeEnd);
 
 
-        addButton.setText("Submit");
+        addButton.setText("Confirm");
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
